@@ -1,15 +1,18 @@
 <script setup lang="ts">
+import MonthlyList from '@/components/Monthly/MonthlyList.vue';
+import MonthlyForm from '@/components/Monthly/MonthlyForm.vue';
 import { defineComponent } from 'vue';
 </script>
 
 <template>
-  <div>Lista Spese</div>
-  <ul>
-    <li>Pago</li>
-    <li>Pago</li>
-    <li>Pago</li>
-    <li>Pago</li>
-  </ul>
+  <main>
+    <form>
+      <p>purpose</p>
+      <input type="text" />
+      <p>purpose</p>
+      <input type="submit" />
+    </form>
+  </main>
 </template>
 
 <script lang="ts">
