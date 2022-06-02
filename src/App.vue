@@ -2,25 +2,32 @@
 import { RouterLink, RouterView } from 'vue-router';
 import HelloWorld from '@/components/HelloWorld.vue';
 import MonthlyRecap from '@/components/Monthly/MonthlyRecap.vue';
+import HomeView from './views/HomeView.vue';
 </script>
 
 <template>
   <header>
     <div class="wrapper">
-      <HelloWorld v-if="true" msg="You did it!" />
+      <HelloWorld v-show="$route.name == 'home'" msg="You did it!" />
+      <nav :class="$route.name !== 'home' ? 'column' : ''">
+        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/expense">Add Expense </RouterLink>
+        <RouterLink to="/trip">Add Trip</RouterLink>
+        <RouterLink to="/monthlyrecap">View and print Recap</RouterLink>
+      </nav>
     </div>
   </header>
-  <MonthlyRecap month={} />
+  <RouterView />
 </template>
 <style>
-
 @import '@/assets/base.css';
 
 #app {
   max-width: 1280px;
-  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  margin: 0 !important;
   padding: 2rem;
-
   font-weight: normal;
 }
 
@@ -94,6 +101,7 @@ nav a:first-of-type {
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;
+    flex-direction: column;
   }
 
   .logo {
@@ -102,11 +110,13 @@ nav a:first-of-type {
 
   nav {
     text-align: left;
-    margin-left: -1rem;
     font-size: 1rem;
-
     padding: 1rem 0;
     margin-top: 1rem;
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
   }
 }
 </style>
