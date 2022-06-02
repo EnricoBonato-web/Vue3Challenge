@@ -62,6 +62,7 @@
   }
   .vue-form-wizard .control-container {
     margin-top: 16px;
+    width: 100%;
   }
   .vue-form-wizard .control-container button {
     background-color: var(--button-background-standard);

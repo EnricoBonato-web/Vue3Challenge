@@ -1,12 +1,12 @@
-Trip<script setup lang="ts">
+<script setup lang="ts">
 import { defineComponent } from 'vue';
 import VueFormWizard from '@anivive/vue3-form-wizard';
-import wizardQuestions from './expenseQuestions.json';
+import wizardQuestions from './tripQuestions.json';
 import '../../assets/form.css';
 </script>
 
 <template>
-  <h1>Insert Expense</h1>
+  <h1>Insert trip</h1>
   <vue-form-wizard :form="wizardQuestions" v-model="formData" @submit="handleForm(formData)" />
 </template>
 

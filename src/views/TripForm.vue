@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import Expense from "@/components/expenses/expense.vue"
+import Trip from "@/components/trip/trip.vue"
 </script>
 
 <template>
   <main>
-    <Expense />
+    <Trip />
   </main>
 </template>
