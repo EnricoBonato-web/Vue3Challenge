@@ -6,6 +6,7 @@ import { defineComponent } from 'vue';
 
 <template>
   <main>
+<<<<<<< HEAD
     <form>
       <p>purpose</p>
       <FormKit type="text" />
@@ -20,6 +21,10 @@ import { defineComponent } from 'vue';
 
       <input type="submit" />
     </form>
+=======
+    <MonthlyForm />
+    <MonthlyList />
+>>>>>>> a8c589b8c9b6f847b54c998b37f7b943fb242eb2
   </main>
 </template>
 
