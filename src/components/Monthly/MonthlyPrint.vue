@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { defineComponent } from 'vue';
-console.log("build");
+console.log('build');
 </script>
 
 <template>
@@ -10,6 +10,10 @@ console.log("build");
 <script lang="ts">
 export default defineComponent({
   props: ['month'],
-  emits: ['update:modelValue'],
+  emit: {
+    prova() {
+      console.log('prova');
+    },
+  },
 });
 </script>
