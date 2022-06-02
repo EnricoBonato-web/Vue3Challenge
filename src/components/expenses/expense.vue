@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { defineComponent } from 'vue';
 import VueFormWizard from '@anivive/vue3-form-wizard';
-import wizardQuestions from './wizardQuestions.json';
+import wizardQuestions from './expenseQuestions.json';
 import '../../assets/form.css'
 console.log(wizardQuestions[1]);
 </script>
@@ -36,6 +36,5 @@ export default defineComponent({
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

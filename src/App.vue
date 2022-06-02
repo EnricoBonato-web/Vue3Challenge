@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router';
-import HelloWorld from '@/components/HelloWorld.vue';
 import MonthlyRecap from '@/components/Monthly/MonthlyRecap.vue';
 import HomeView from './views/HomeView.vue';
 </script>
@@ -8,8 +7,8 @@ import HomeView from './views/HomeView.vue';
 <template>
   <header>
     <div class="wrapper">
-      <HelloWorld v-show="$route.name == 'home'" msg="You did it!" />
-      <nav :class="$route.name !== 'home' ? 'column' : ''">
+      <!--<HelloWorld v-show="$route.name == 'home'" msg="You did it!" />-->
+      <nav class="column">
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/expense">Add Expense </RouterLink>
         <RouterLink to="/trip">Add Trip</RouterLink>
@@ -26,8 +25,8 @@ import HomeView from './views/HomeView.vue';
   max-width: 1280px;
   width: 100%;
   height: 100%;
-  margin: 0 !important;
-  padding: 2rem;
+  margin: 0;
+  padding: 1rem;
   font-weight: normal;
 }
 
@@ -59,6 +58,7 @@ nav {
   font-size: 12px;
   text-align: center;
   margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 nav a.router-link-exact-active {
@@ -87,7 +87,7 @@ nav a:first-of-type {
 
   #app {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 3fr;
     padding: 0 2rem;
   }
 

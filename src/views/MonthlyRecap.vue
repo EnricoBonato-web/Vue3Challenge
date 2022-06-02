@@ -1,6 +1,10 @@
+<script setup lang="ts">
+import MonthlyRecap  from "@/components/Monthly/MonthlyRecap.vue"
+</script>
+
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <MonthlyRecap/>
   </div>
 </template>
 
