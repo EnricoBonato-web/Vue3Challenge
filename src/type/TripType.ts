@@ -9,6 +9,7 @@ type TripType = {
   breakfasts: number;
   lunches: number;
   dinners: number;
+  isDummyData?: boolean; //added to add and remove dummy datas
 };
 export default TripType;
 /*
