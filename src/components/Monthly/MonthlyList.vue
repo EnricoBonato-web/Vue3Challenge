@@ -3,7 +3,13 @@ import { defineComponent } from 'vue';
 </script>
 
 <template>
-  <div class="logo">{{ $props.month }}</div>
+  <div>{{ $props.month }}</div>
+  <ul>
+    <li>Pago</li>
+    <li>Pago</li>
+    <li>Pago</li>
+    <li>Pago</li>
+  </ul>
 </template>
 
 <script lang="ts">
