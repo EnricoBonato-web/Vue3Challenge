@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import MonthlyList from '@/components/Monthly/MonthlyList.vue';
+import MonthlyForm from '@/components/Monthly/MonthlyForm.vue';
 import { defineComponent } from 'vue';
 </script>
 
 <template>
   <main>
-    <MonthlyList :month= "$props.month" />
+    <MonthlyForm :month="$props.month" />
+    <MonthlyList :month="$props.month" />
   </main>
 </template>
 

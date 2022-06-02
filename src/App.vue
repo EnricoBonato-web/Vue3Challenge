@@ -10,15 +10,9 @@ import MonthlyRecap from '@/components/Monthly/MonthlyRecap.vue';
       <HelloWorld v-if="true" msg="You did it!" />
     </div>
   </header>
-  <MonthlyRecap month="August" />
+  <MonthlyRecap month={} />
 </template>
 <style>
-
-
-
-
-
-
 
 @import '@/assets/base.css';
 
