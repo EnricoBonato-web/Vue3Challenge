@@ -1,4 +1,5 @@
-Trip<script setup lang="ts">
+Trip
+<script setup lang="ts">
 import { defineComponent } from 'vue';
 import VueFormWizard from '@anivive/vue3-form-wizard';
 import wizardQuestions from './expenseQuestions.json';
@@ -28,6 +29,4 @@ export default defineComponent({
 });
 </script>
 
-<style>
-
-</style>
+<style></style>

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { defineComponent } from 'vue';
-console.log('build');
 </script>
 
 <template>

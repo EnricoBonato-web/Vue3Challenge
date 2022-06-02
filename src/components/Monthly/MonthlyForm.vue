@@ -10,7 +10,7 @@ DataSelected.data =
 <template>
   <form>
     <input type="month" v-model="DataSelected.data" />
-    <MonthlyPrint :month="DataSelected.data" @prova="" />
+    <MonthlyPrint :month="DataSelected.data" />
   </form>
 </template>
 

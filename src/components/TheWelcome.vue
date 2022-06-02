@@ -5,6 +5,8 @@ import ToolingIcon from './icons/IconTooling.vue';
 import EcosystemIcon from './icons/IconEcosystem.vue';
 import CommunityIcon from './icons/IconCommunity.vue';
 import SupportIcon from './icons/IconSupport.vue';
+import type TripType from '@/type/TripType';
+import DummyTrips from './trip/DummyTrips';
 </script>
 
 <template>
@@ -86,20 +88,26 @@ export default {
   name: 'ExpenseTrip',
   data() {
     return {
-      DataAdded: localStorage.getItem('trips') ? true : false,
+      DataAdded:
+        localStorage.getItem('trips') !== undefined
+          ? localStorage.getItem('trips')!.length > 0
+            ? true
+            : false
+          : false,
     };
   },
   methods: {
     Add(e: Event) {
       e.preventDefault();
-      console.log('data');
-      localStorage.setItem('trips', JSON.stringify({}));
+      const data: TripType[] = DummyTrips;
+      console.log(localStorage.getItem('trips'));
+      localStorage.setItem('trips', JSON.stringify(data));
       this.DataAdded = !this.DataAdded;
     },
     Remove(e: Event) {
       e.preventDefault();
       console.log('data');
-      localStorage.setItem('trips', JSON.stringify({}));
+      localStorage.setItem('trips', '');
       this.DataAdded = !this.DataAdded;
     },
   },
