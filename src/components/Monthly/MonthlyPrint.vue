@@ -10,10 +10,5 @@ console.log('build');
 <script lang="ts">
 export default defineComponent({
   props: ['month'],
-  emit: {
-    prova() {
-      console.log('prova');
-    },
-  },
 });
 </script>

@@ -16,7 +16,6 @@ DataSelected.data =
 
 <script lang="ts">
 export default defineComponent({
-  props: ['month'],
   methods: {
     deleteRecord(id: string) {
       this.$emit('deteleRecord', id);

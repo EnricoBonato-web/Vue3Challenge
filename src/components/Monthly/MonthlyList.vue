@@ -3,7 +3,7 @@ import { defineComponent } from 'vue';
 </script>
 
 <template>
-  <div>{{ $props.month }}</div>
+  <div>Lista Spese</div>
   <ul>
     <li>Pago</li>
     <li>Pago</li>
@@ -14,7 +14,6 @@ import { defineComponent } from 'vue';
 
 <script lang="ts">
 export default defineComponent({
-  props: ['month'],
   methods: {
     deleteRecord(id: string) {
       this.$emit('deteleRecord', id);

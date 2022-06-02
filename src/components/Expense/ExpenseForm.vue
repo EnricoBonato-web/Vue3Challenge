@@ -6,8 +6,20 @@ import { defineComponent } from 'vue';
 
 <template>
   <main>
-    <MonthlyForm />
-    <MonthlyList />
+    <form>
+      <p>purpose</p>
+      <FormKit type="text" />
+      <p>startTime</p>
+      <FormKit type="datetime-local" />
+      <p>endDate</p>
+      <FormKit type="datetime-local" />
+      <p>start location</p>
+      <FormKit type="text" />
+      <p>end location</p>
+      <FormKit type="text" />
+
+      <input type="submit" />
+    </form>
   </main>
 </template>
 

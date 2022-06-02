@@ -1,19 +1,21 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router';
-import HelloWorld from '@/components/HelloWorld.vue';
 import MonthlyRecap from '@/components/Monthly/MonthlyRecap.vue';
+import TripForm from '@/components/Trip/TripForm.vue';
+import ExpenseForm from '@/components/Expense/ExpenseForm.vue';
+
+//      localStorage.setItem('storedData', this.input)
 </script>
 
 <template>
   <header>
     <div class="wrapper">
-      <HelloWorld v-if="true" msg="You did it!" />
+      <TripForm />
+      <ExpenseForm />
     </div>
   </header>
-  <MonthlyRecap month={} />
+  <MonthlyRecap />
 </template>
 <style>
-
 @import '@/assets/base.css';
 
 #app {
