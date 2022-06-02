@@ -47,7 +47,12 @@ import SupportIcon from './icons/IconSupport.vue';
     <template #heading>Dummy Data</template>
 
     Get official tools and libraries for your project:
-    <form @submit="submit($event)"><button type="submit">Add Data</button></form>
+    <form @submit="Add($event)">
+      <button type="submit" :disabled="DataAdded">Add Dummy Trips</button>
+    </form>
+    <form @submit="Remove($event)">
+      <button type="submit" :disabled="!DataAdded">Remove Dummy Trips</button>
+    </form>
   </WelcomeItem>
 
   <WelcomeItem>
@@ -81,14 +86,21 @@ export default {
   name: 'ExpenseTrip',
   data() {
     return {
-      DataAdded:localStorage.getItem("trips")?true:false
+      DataAdded: localStorage.getItem('trips') ? true : false,
     };
   },
   methods: {
-    submit(e: Event) {
+    Add(e: Event) {
       e.preventDefault();
       console.log('data');
-      this.DataAdded=!this.DataAdded;
+      localStorage.setItem('trips', JSON.stringify({}));
+      this.DataAdded = !this.DataAdded;
+    },
+    Remove(e: Event) {
+      e.preventDefault();
+      console.log('data');
+      localStorage.setItem('trips', JSON.stringify({}));
+      this.DataAdded = !this.DataAdded;
     },
   },
 };
