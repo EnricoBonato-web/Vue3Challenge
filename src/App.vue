@@ -2,6 +2,7 @@
 import MonthlyRecap from '@/components/Monthly/MonthlyRecap.vue';
 import TripForm from '@/components/Trip/TripForm.vue';
 import ExpenseForm from '@/components/Expense/ExpenseForm.vue';
+
 //      localStorage.setItem('storedData', this.input)
 </script>
 
