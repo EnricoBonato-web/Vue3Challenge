@@ -1,22 +1,16 @@
 <script setup lang="ts">
 import { defineComponent } from 'vue';
 import MonthlyPrint from '@/components/Monthly/MonthlyPrint.vue';
-
+import { DataSelected } from '@/components/Monthly/DataState.vue';
 const today = new Date();
-let todayFormatted =
+DataSelected.data =
   today.getFullYear() + '-' + (today.getMonth() + 1 < 10 ? '0' : '') + String(today.getMonth() + 1);
-let test = todayFormatted;
-const updateDate = function (data: string) {
-  this.test = data;
-  console.log(test);
-};
-console.log(todayFormatted);
 </script>
 
 <template>
   <form>
-    <input type="month" v-model="todayFormatted" @change="updateDate(todayFormatted)" />
-    <MonthlyPrint :key="test" :month="todayFormatted" />
+    <input type="month" v-model="DataSelected.data" />
+    <MonthlyPrint :month="DataSelected.data" @prova="" />
   </form>
 </template>
 
