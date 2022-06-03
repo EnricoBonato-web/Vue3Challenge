@@ -1,7 +1,31 @@
 [
   {
     "property": "question1",
-    "text": "What is your name?*",
+    "text": "Trip Date",
+    "type": "input",
+    "options": {
+      "type": "datetime-local"
+    },
+    "required": true
+  },
+  {
+    "property": "question2",
+    "text": "Which randomly generated list items do you like the most?",
+    "type": "options",
+    "options": {
+      "multiSelect": false,
+      "list": [
+        {
+          "id": 1,
+          "value": "Winter"
+        }
+      ]
+    },
+    "required": true
+  },
+  {
+    "property": "question3",
+    "text": "Voucher Number",
     "type": "input",
     "options": {
       "type": "text",
@@ -16,62 +40,60 @@
     "required": true
   },
   {
-    "property": "question2",
+    "property": "question4",
+    "text": "Description",
+    "type": "input",
+    "options": {
+      "type": "text",
+      "validations": {
+        "min": {
+          "value": 3,
+          "message": "Input needs to be at least 3 characters"
+        }
+      },
+      "placeholder": "Enter the text."
+    },
+    "required": true
+  },
+  {
+    "property": "question5",
+    "text": "Type",
+    "type": "options",
+    "options": {
+      "multiSelect": false,
+      "list": []
+    },
+    "required": true
+  },
+  {
+    "property": "question6",
     "text": "What is your favorite number between 3 and 40?",
     "type": "input",
     "options": {
       "type": "number",
       "validations": {
         "min": {
-          "value": 3,
-          "message": "Minimum value is 3"
-        },
-        "max": {
-          "value": 40,
-          "message": "Maximum value is 40"
+          "value": 0,
+          "message": "Minimum value is 0"
         }
       },
       "placeholder": "Enter a number"
     }
   },
   {
-    "property": "question4",
-    "text": "What is your favorite time of year?",
-    "type": "options",
+    "property": "question7",
+    "text": "Notes (optional)",
+    "type": "input",
     "options": {
-      "multiSelect": false,
-      "list": [
-        {
-          "id": 1,
-          "value": "Winter"
-        },
-        {
-          "id": 2,
-          "value": "Spring"
-        },
-        {
-          "id": 3,
-          "value": "Summer"
-        },
-        {
-          "id": 4,
-          "value": "Fall"
+      "type": "text",
+      "validations": {
+        "min": {
+          "value": 3,
+          "message": "Input needs to be at least 3 characters"
         }
-      ]
-    }
-  },
-  {
-    "property": "question6",
-    "text": "Which randomly generated list items do you like the most?",
-    "type": "options",
-    "options": {
-      "multiSelect": true,
-      "api": {
-        "url": "https://jsonplaceholder.typicode.com/todos"
       },
-      "keys": {
-        "value": "title"
-      }
-    }
+      "placeholder": "Enter the text."
+    },
+    "required": false
   }
 ]

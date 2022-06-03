@@ -13,8 +13,6 @@ import type TripType from '@/type/TripType';
 
 <script lang="ts">
 export default defineComponent({
-  name: 'ExpenseTrip',
-
   methods: {
     handleForm(data: any) {
       console.log(data.question1.value);
@@ -37,8 +35,7 @@ export default defineComponent({
         const trips: TripType[] = JSON.parse(localStorage.getItem('trips')!);
         trips.push(tripBuild[0]);
         localStorage.setItem('trips', JSON.stringify(trips));
-      }else
-      localStorage.setItem('trips', JSON.stringify(tripBuild));
+      } else localStorage.setItem('trips', JSON.stringify(tripBuild));
       console.log(JSON.stringify(tripBuild));
       console.log(localStorage.getItem('trips'));
     },
