@@ -5,6 +5,7 @@ type TripType = {
   endDate: Date;
   startLocation: string;
   endLocation: string;
+  kilometersTravelled: number;
   overnight: number;
   breakfasts: number;
   lunches: number;
