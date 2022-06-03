@@ -15,7 +15,6 @@ import type TripType from '@/type/TripType';
 export default defineComponent({
   methods: {
     handleForm(data: any) {
-      console.log(data.question1.value);
       const tripBuild: TripType[] = [
         {
           id: '' + Math.ceil(Math.random() * 1000000),
@@ -36,8 +35,6 @@ export default defineComponent({
         trips.push(tripBuild[0]);
         localStorage.setItem('trips', JSON.stringify(trips));
       } else localStorage.setItem('trips', JSON.stringify(tripBuild));
-      console.log(JSON.stringify(tripBuild));
-      console.log(localStorage.getItem('trips'));
     },
   },
   data() {
