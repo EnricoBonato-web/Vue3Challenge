@@ -8,7 +8,6 @@ import { defineComponent } from 'vue';
   <ul>
     <li v-for="trip in DataAdded">{{ trip.purpose }}</li>
   </ul>
-  
 </template>
 
 <script lang="ts">

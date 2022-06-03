@@ -10,8 +10,8 @@ import HomeView from './views/HomeView.vue';
       <!--<HelloWorld v-show="$route.name == 'home'" msg="You did it!" />-->
       <nav class="column">
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/expense">Add Expense </RouterLink>
         <RouterLink to="/trip">Add Trip</RouterLink>
+        <RouterLink to="/expense">Add Expense </RouterLink>
         <RouterLink to="/monthlyrecap">View and print Recap</RouterLink>
       </nav>
     </div>

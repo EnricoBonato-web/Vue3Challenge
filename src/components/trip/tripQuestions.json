@@ -1,7 +1,7 @@
 [
   {
     "property": "question1",
-    "text": "What is your name?*",
+    "text": "What is the purpose of the trip?*",
     "type": "input",
     "options": {
       "type": "text",
@@ -17,61 +17,147 @@
   },
   {
     "property": "question2",
-    "text": "What is your favorite number between 3 and 40?",
+    "text": "Start time",
+    "type": "input",
+    "options": {
+      "type": "datetime-local"
+    },
+    "required": true
+  },
+  {
+    "property": "question3",
+    "text": "End time",
+    "type": "input",
+    "options": {
+      "type": "datetime-local"
+    },
+    "required": true
+  },
+  {
+    "property": "question4",
+    "text": "Start location*",
+    "type": "input",
+    "options": {
+      "type": "text",
+      "validations": {
+        "min": {
+          "value": 3,
+          "message": "Input needs to be at least 3 characters"
+        }
+      },
+      "placeholder": "Enter the text."
+    },
+    "required": true
+  },
+  {
+    "property": "question5",
+    "text": "End location*",
+    "type": "input",
+    "options": {
+      "type": "text",
+      "validations": {
+        "min": {
+          "value": 3,
+          "message": "Input needs to be at least 3 characters"
+        }
+      },
+      "placeholder": "Enter the text."
+    },
+    "required": true
+  },
+  {
+    "property": "question6",
+    "text": "Kilometers traveled",
     "type": "input",
     "options": {
       "type": "number",
       "validations": {
         "min": {
-          "value": 3,
-          "message": "Minimum value is 3"
+          "value": 0,
+          "message": "Minimum value is 0"
         },
         "max": {
-          "value": 40,
-          "message": "Maximum value is 40"
+          "value": 40000,
+          "message": "Maximum value is 40000"
         }
       },
       "placeholder": "Enter a number"
     }
   },
   {
-    "property": "question4",
-    "text": "What is your favorite time of year?",
-    "type": "options",
+    "property": "question7",
+    "text": "Number of overnight",
+    "type": "input",
     "options": {
-      "multiSelect": false,
-      "list": [
-        {
-          "id": 1,
-          "value": "Winter"
+      "type": "number",
+      "validations": {
+        "min": {
+          "value": 0,
+          "message": "Minimum value is 0"
         },
-        {
-          "id": 2,
-          "value": "Spring"
-        },
-        {
-          "id": 3,
-          "value": "Summer"
-        },
-        {
-          "id": 4,
-          "value": "Fall"
+        "max": {
+          "value": 40000,
+          "message": "Maximum value is 40000"
         }
-      ]
+      },
+      "placeholder": "Enter a number"
     }
   },
   {
-    "property": "question6",
-    "text": "Which randomly generated list items do you like the most?",
-    "type": "options",
+    "property": "question8",
+    "text": "Number of breakfasts",
+    "type": "input",
     "options": {
-      "multiSelect": true,
-      "api": {
-        "url": "https://jsonplaceholder.typicode.com/todos"
+      "type": "number",
+      "validations": {
+        "min": {
+          "value": 0,
+          "message": "Minimum value is 0"
+        },
+        "max": {
+          "value": 40000,
+          "message": "Maximum value is 40000"
+        }
       },
-      "keys": {
-        "value": "title"
-      }
+      "placeholder": "Enter a number"
+    }
+  },
+  {
+    "property": "question9",
+    "text": "Number of lunches",
+    "type": "input",
+    "options": {
+      "type": "number",
+      "validations": {
+        "min": {
+          "value": 0,
+          "message": "Minimum value is 0"
+        },
+        "max": {
+          "value": 40000,
+          "message": "Maximum value is 40000"
+        }
+      },
+      "placeholder": "Enter a number"
+    }
+  },
+  {
+    "property": "question10",
+    "text": "Number of dinners",
+    "type": "input",
+    "options": {
+      "type": "number",
+      "validations": {
+        "min": {
+          "value": 0,
+          "message": "Minimum value is 0"
+        },
+        "max": {
+          "value": 40000,
+          "message": "Maximum value is 40000"
+        }
+      },
+      "placeholder": "Enter a number"
     }
   }
 ]
