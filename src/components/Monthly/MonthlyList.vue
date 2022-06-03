@@ -22,10 +22,6 @@ export default defineComponent({
     };
   },
   methods: {},
-  emit: {
-    prova() {
-      console.log('prova');
-    },
-  },
+  
 });
 </script>

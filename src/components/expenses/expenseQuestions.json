@@ -10,7 +10,7 @@
   },
   {
     "property": "question2",
-    "text": "Which randomly generated list items do you like the most?",
+    "text": "Which trip?",
     "type": "options",
     "options": {
       "multiSelect": false,

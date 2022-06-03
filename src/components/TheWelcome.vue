@@ -100,13 +100,11 @@ export default {
     Add(e: Event) {
       e.preventDefault();
       const data: TripType[] = DummyTrips;
-      console.log(localStorage.getItem('trips'));
       localStorage.setItem('trips', JSON.stringify(data));
       this.DataAdded = !this.DataAdded;
     },
     Remove(e: Event) {
       e.preventDefault();
-      console.log('data');
       localStorage.setItem('trips', '');
       this.DataAdded = !this.DataAdded;
     },

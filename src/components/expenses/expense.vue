@@ -5,6 +5,7 @@ import wizardQuestions from './expenseQuestions.json';
 import '../../assets/form.css';
 import type TripType from '@/type/TripType';
 import type ExpenseType from '@/type/ExpenseType';
+import BillType from '@/type/BillType';
 </script>
 
 <template>
@@ -20,14 +21,15 @@ import type ExpenseType from '@/type/ExpenseType';
 <script lang="ts">
 export default defineComponent({
   methods: {
-    load(data:Date) {
+    load(data: Date) {
       let updatedQuestion = wizardQuestions;
+      updatedQuestion[4].options.list = [];
+      updatedQuestion[4].options.list?.push(...BillType);
       updatedQuestion[1].options.list = [];
       JSON.parse(localStorage.getItem('trips')!).forEach((trip: TripType) => {
-        if(trip.startTime<data&&data<trip.endDate)
-        updatedQuestion[1].options.list?.push({ id: +trip.id, value: trip.purpose });
+        if (trip.startTime < data && data < trip.endDate)
+          updatedQuestion[1].options.list?.push({ id: +trip.id, value: trip.purpose });
       });
-      console.log('prova');
       return updatedQuestion;
     },
     handleChange(data: any) {
@@ -37,7 +39,7 @@ export default defineComponent({
       const expenseBuild: ExpenseType[] = [
         {
           date: data.question1.value,
-          tripId: data.question2.value,
+          tripId: data.question2.value.id,
           voucherNumber: data.question3.value,
           description: data.question4.value,
           type: data.question5.value,
@@ -45,18 +47,15 @@ export default defineComponent({
           note: data.question7.value,
         },
       ];
-      if (localStorage.getItem('expense') !== undefined) {
+      if (localStorage.getItem('expense') !== null) {
         const trips: ExpenseType[] = JSON.parse(localStorage.getItem('expense')!);
         trips.push(expenseBuild[0]);
         localStorage.setItem('expense', JSON.stringify(trips));
       } else localStorage.setItem('expense', JSON.stringify(expenseBuild));
-      console.log(JSON.stringify(expenseBuild));
-      console.log(localStorage.getItem('expense'));
     },
   },
   data() {
     return {
-      filterData: new DataTransfer(),
       formData: [],
       questions: this.load(new Date()),
     };

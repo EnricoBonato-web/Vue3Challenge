@@ -5,7 +5,7 @@ type ExpenseType = {
   tripId: number;
   voucherNumber: string;
   description: string;
-  type: BillType;
+  type: typeof BillType;
   amount: number;
   note?: string;
 };
