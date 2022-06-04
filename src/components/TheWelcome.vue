@@ -7,6 +7,7 @@ import CommunityIcon from './icons/IconCommunity.vue';
 import SupportIcon from './icons/IconSupport.vue';
 import type TripType from '@/type/TripType';
 import DummyTrips from './trip/DummyTrips';
+import LocalStorageVar from '../type/LocalStorageVar.js';
 </script>
 
 <template>
@@ -50,10 +51,10 @@ import DummyTrips from './trip/DummyTrips';
 
     Get official tools and libraries for your project:
     <form @submit="Add($event)">
-      <button type="submit" :disabled="DataAdded">Add Dummy Trips</button>
+      <button type="submit" :disabled="DataAdded">Add Dummy Data</button>
     </form>
     <form @submit="Remove($event)">
-      <button type="submit" :disabled="!DataAdded">Remove Dummy Trips</button>
+      <button type="submit" :disabled="!DataAdded">Remove Dummy Data</button>
     </form>
   </WelcomeItem>
 
@@ -89,8 +90,8 @@ export default {
   data() {
     return {
       DataAdded:
-        localStorage.getItem('trips') !== undefined
-          ? localStorage.getItem('trips')!.length > 0
+        localStorage.getItem(LocalStorageVar.TRIPS) !== null
+          ? localStorage.getItem(LocalStorageVar.TRIPS)!.length > 0
             ? true
             : false
           : false,
@@ -99,13 +100,21 @@ export default {
   methods: {
     Add(e: Event) {
       e.preventDefault();
-      const data: TripType[] = DummyTrips;
-      localStorage.setItem('trips', JSON.stringify(data));
+      const trips: TripType[] = DummyTrips;
+      localStorage.setItem(LocalStorageVar.TRIPS, JSON.stringify(trips));
+      const expenses: expenseType[] = DummyTrips;
+      localStorage.setItem(LocalStorageVar.EXPENSES, JSON.stringify(expenses));
       this.DataAdded = !this.DataAdded;
     },
     Remove(e: Event) {
       e.preventDefault();
-      localStorage.setItem('trips', '');
+      if (localStorage.getItem(LocalStorageVar.TRIPS) != null)
+        localStorage.setItem(
+          LocalStorageVar.TRIPS,
+          JSON.parse(localStorage.getItem(LocalStorageVar.TRIPS)!).filter((trip: TripType) => {
+            trip.isDummyData != null;
+          }),
+        );
       this.DataAdded = !this.DataAdded;
     },
   },

@@ -6,6 +6,7 @@ import '../../assets/form.css';
 import type TripType from '@/type/TripType';
 import type ExpenseType from '@/type/ExpenseType';
 import BillType from '@/type/BillType';
+import LocalStorageVar from '@/type/LocalStorageVar.js';
 </script>
 
 <template>
@@ -26,7 +27,7 @@ export default defineComponent({
       updatedQuestion[4].options.list = [];
       updatedQuestion[4].options.list?.push(...BillType);
       updatedQuestion[1].options.list = [];
-      JSON.parse(localStorage.getItem('trips')!).forEach((trip: TripType) => {
+      JSON.parse(localStorage.getItem(LocalStorageVar.TRIPS)!)?.forEach((trip: TripType) => {
         if (trip.startTime < data && data < trip.endDate)
           updatedQuestion[1].options.list?.push({ id: +trip.id, value: trip.purpose });
       });
@@ -39,7 +40,7 @@ export default defineComponent({
       const expenseBuild: ExpenseType[] = [
         {
           date: data.question1.value,
-          tripId: data.question2.value.id,
+          tripId: data.question2.value[0].id,
           voucherNumber: data.question3.value,
           description: data.question4.value,
           type: data.question5.value,
@@ -47,11 +48,11 @@ export default defineComponent({
           note: data.question7.value,
         },
       ];
-      if (localStorage.getItem('expense') !== null) {
-        const trips: ExpenseType[] = JSON.parse(localStorage.getItem('expense')!);
+      if (localStorage.getItem(LocalStorageVar.EXPENSE) !== null) {
+        const trips: ExpenseType[] = JSON.parse(localStorage.getItem(LocalStorageVar.EXPENSE)!);
         trips.push(expenseBuild[0]);
-        localStorage.setItem('expense', JSON.stringify(trips));
-      } else localStorage.setItem('expense', JSON.stringify(expenseBuild));
+        localStorage.setItem(LocalStorageVar.EXPENSE, JSON.stringify(trips));
+      } else localStorage.setItem(LocalStorageVar.EXPENSE, JSON.stringify(expenseBuild));
     },
   },
   data() {

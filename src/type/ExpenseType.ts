@@ -1,11 +1,9 @@
-import type BillType from './BillType';
-
 type ExpenseType = {
   date: Date;
-  tripId: number;
+  tripId: string;
   voucherNumber: string;
   description: string;
-  type: typeof BillType;
+  type: { id: string; value: string };
   amount: number;
   note?: string;
 };

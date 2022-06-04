@@ -2,7 +2,7 @@ import type TripType from '@/type/TripType';
 
 const DummyTrips: TripType[] = [
   {
-    id: '' + Math.random() * 100,
+    id: '' + 0,
     purpose: 'Holliday',
     startTime: new Date(),
     endDate: new Date(),
@@ -16,10 +16,10 @@ const DummyTrips: TripType[] = [
     isDummyData: true, //added to add and remove dummy datas }];
   },
   {
-    id: '' + Math.random() * 100,
+    id: '' + 1,
     purpose: 'party',
-    startTime: new Date(),
-    endDate: new Date(),
+    startTime: new Date(new Date().getTime() + 30 * 24 * 60 * 60 * 1000),
+    endDate: new Date(new Date().getTime() + 30 * 24 * 60 * 60 * 1000),
     startLocation: 'Bielefeld',
     endLocation: 'Castelfranco',
     kilometersTravelled: 0,
@@ -30,7 +30,7 @@ const DummyTrips: TripType[] = [
     isDummyData: true, //added to add and remove dummy datas }];
   },
   {
-    id: '' + Math.random() * 100,
+    id: '' + 2,
     purpose: 'work',
     startTime: new Date(),
     endDate: new Date(new Date().getTime() + 24 * 60 * 60 * 1000),
@@ -44,7 +44,7 @@ const DummyTrips: TripType[] = [
     isDummyData: true, //added to add and remove dummy datas }];
   },
   {
-    id: '' + Math.random() * 100,
+    id: '' + 3,
     purpose: 'cat',
     startTime: new Date(new Date().getTime() - 24 * 60 * 60 * 1000),
     endDate: new Date(new Date().getTime() + 2 * 24 * 60 * 60 * 1000),

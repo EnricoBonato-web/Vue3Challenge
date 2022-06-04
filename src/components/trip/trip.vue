@@ -4,6 +4,7 @@ import VueFormWizard from '@anivive/vue3-form-wizard';
 import wizardQuestions from './tripQuestions.json';
 import '../../assets/form.css';
 import type TripType from '@/type/TripType';
+import LocalStorageVar from '@/type/LocalStorageVar';
 </script>
 
 <template>
@@ -30,11 +31,11 @@ export default defineComponent({
           dinners: data.question10.value,
         },
       ];
-      if (localStorage.getItem('trips') !== undefined) {
-        const trips: TripType[] = JSON.parse(localStorage.getItem('trips')!);
+      if (localStorage.getItem(LocalStorageVar.TRIPS) !== undefined) {
+        const trips: TripType[] = JSON.parse(localStorage.getItem(LocalStorageVar.TRIPS)!);
         trips.push(tripBuild[0]);
-        localStorage.setItem('trips', JSON.stringify(trips));
-      } else localStorage.setItem('trips', JSON.stringify(tripBuild));
+        localStorage.setItem(LocalStorageVar.TRIPS, JSON.stringify(trips));
+      } else localStorage.setItem(LocalStorageVar.TRIPS, JSON.stringify(tripBuild));
     },
   },
   data() {
