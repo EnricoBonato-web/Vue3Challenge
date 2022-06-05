@@ -3,7 +3,7 @@ import type ExpenseType from '@/type/ExpenseType';
 import type TripType from '@/type/TripType';
 import { defineComponent } from 'vue';
 import { DataSelected } from '@/components/Monthly/DataState.vue';
-import LocalStorageVar from '../../type/LocalStorageVar.js';
+import LocalStorageVar from '../../type/LocalStorageVar';
 import ListItem from './ListItem.vue';
 </script>
 <template >

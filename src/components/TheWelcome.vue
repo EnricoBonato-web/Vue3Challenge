@@ -9,7 +9,7 @@ import type TripType from '@/type/TripType';
 import type ExpenseType from '@/type/ExpenseType';
 import DummyTrips from './trip/DummyTrips';
 import DummyExpenses from './expenses/DummyExpenses';
-import LocalStorageVar from '../type/LocalStorageVar.js';
+import LocalStorageVar from '../type/LocalStorageVar';
 </script>
 
 <template>

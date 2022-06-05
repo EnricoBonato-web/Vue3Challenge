@@ -8,8 +8,7 @@ import type ExpenseType from '@/type/ExpenseType';
 import BillType from '@/type/BillType';
 import type tripVue from '../trip/trip.vue';
 import type { inRange } from 'cypress/types/lodash';
-import LocalStorageVar from '@/type/LocalStorageVar.js';
-import VueHtml2pdf from 'vue-html2pdf'
+import LocalStorageVar from '@/type/LocalStorageVar';
 
 </script>
 
@@ -21,7 +20,7 @@ import VueHtml2pdf from 'vue-html2pdf'
 <script lang="ts">
 export default defineComponent({
   methods: {
-    handleNext(success) {
+    handleNext() {
       if (this.formData.question1.value != this.oldData) {
         this.load(this.formData.question1.value as Date)
         this.oldData = this.formData.question1.value;

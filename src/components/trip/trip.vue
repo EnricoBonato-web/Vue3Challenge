@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { defineComponent } from 'vue';
-import VueFormWizard from '@anivive/vue3-form-wizard';
 import wizardQuestions from './tripQuestions.json';
 import '../../assets/form.css';
 import type TripType from '@/type/TripType';
@@ -21,7 +20,7 @@ export default defineComponent({
           id: '' + Math.ceil(Math.random() * 1000000),
           purpose: data.question1.value,
           startTime: data.question2.value,
-          endDate: data.question3.value,
+          endTime: data.question3.value,
           startLocation: data.question4.value,
           endLocation: data.question5.value,
           kilometersTravelled: data.question6.value,
