@@ -9,17 +9,14 @@ DataSelected.data =
 </script>
 
 <template>
-  <form>
-    <input type="month" v-model="DataSelected.data" />
-    <MonthlyPrint :month="DataSelected.data" />
-      
-  </form>
+  <input type="month" v-model="DataSelected.data" />
+  <MonthlyPrint :month="DataSelected.data" />
 </template>
 
 <script lang="ts">
 export default defineComponent({
   props: ['month'],
- 
+
   methods: {
     deleteRecord(id: string) {
       this.$emit('deteleRecord', id);

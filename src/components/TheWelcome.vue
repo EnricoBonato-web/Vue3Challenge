@@ -6,6 +6,7 @@ import EcosystemIcon from './icons/IconEcosystem.vue';
 import CommunityIcon from './icons/IconCommunity.vue';
 import SupportIcon from './icons/IconSupport.vue';
 import type TripType from '@/type/TripType';
+import type ExpenseType from '@/type/ExpenseType';
 import DummyTrips from './trip/DummyTrips';
 import DummyExpenses from './expenses/DummyExpenses';
 import LocalStorageVar from '../type/LocalStorageVar.js';
@@ -35,9 +36,8 @@ import LocalStorageVar from '../type/LocalStorageVar.js';
     <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>. If you need to test
     your components and web pages, check out
     <a href="https://www.cypress.io/" target="_blank">Cypress</a> and
-    <a href="https://docs.cypress.io/guides/component-testing/introduction" target="_blank"
-      >Cypress Component Testing</a
-    >.
+    <a href="https://docs.cypress.io/guides/component-testing/introduction" target="_blank">Cypress Component
+      Testing</a>.
 
     <br />
 
@@ -86,6 +86,7 @@ import LocalStorageVar from '../type/LocalStorageVar.js';
   </WelcomeItem>
 </template>
 <script lang="ts">
+
 export default {
   name: 'ExpenseTrip',
   data() {
@@ -103,7 +104,7 @@ export default {
       e.preventDefault();
       const trips: TripType[] = DummyTrips;
       localStorage.setItem(LocalStorageVar.TRIPS, JSON.stringify(trips));
-      const expenses: expenseType[] = DummyExpenses;
+      const expenses: ExpenseType[] = DummyExpenses;
       localStorage.setItem(LocalStorageVar.EXPENSES, JSON.stringify(expenses));
       this.DataAdded = !this.DataAdded;
     },
