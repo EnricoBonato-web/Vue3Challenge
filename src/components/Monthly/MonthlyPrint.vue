@@ -3,7 +3,7 @@ import { defineComponent } from 'vue';
 </script>
 
 <template>
-  <button>Print {{ $props.month }}</button>
+  <button @click="">Print {{ $props.month }}</button>
 </template>
 
 <script lang="ts">
