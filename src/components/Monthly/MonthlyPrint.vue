@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { defineComponent } from 'vue';
-import * as pdfMake from "pdfmake/build/pdfmake";
-
+import * as pdfMake from 'pdfmake/build/pdfmake.js';
 </script>
 
 <template>

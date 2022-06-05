@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { defineComponent } from 'vue';
+import VueFormWizard from '@anivive/vue3-form-wizard';
 import wizardQuestions from './tripQuestions.json';
 import '../../assets/form.css';
 import type TripType from '@/type/TripType';

@@ -25,11 +25,11 @@ export default defineComponent({
         this.load(this.formData.question1.value as Date)
         this.oldData = this.formData.question1.value;
       }
-    },
+    }, 
     load(data: Date) {
       let updatedQuestion = wizardQuestions;
       updatedQuestion[4].options.list = [];
-      updatedQuestion[4].options.list?.push(...BillType);
+      updatedQuestion[4].options.list.push(...BillType);
       updatedQuestion[2].options.list = [];
       JSON.parse(localStorage.getItem(LocalStorageVar.TRIPS)!)?.forEach((trip: TripType) => {
         if (data >= trip.startTime && data <= trip.endTime)
@@ -59,7 +59,7 @@ export default defineComponent({
   },
   data() {
     return {
-      formData: [],
+      formData: undefined as any,
       oldData: new Date(),
       questions: this.load(new Date()),
 
