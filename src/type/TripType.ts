@@ -2,7 +2,7 @@ type TripType = {
   id: string;
   purpose: string;
   startTime: Date;
-  endDate: Date;
+  endTime: Date;
   startLocation: string;
   endLocation: string;
   kilometersTravelled: number;

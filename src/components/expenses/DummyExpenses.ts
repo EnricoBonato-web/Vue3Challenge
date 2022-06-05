@@ -1,9 +1,9 @@
 import BillType from '@/type/BillType';
-
-[
+import type ExpenseType from '@/type/ExpenseType';
+const DummyExpense: ExpenseType[] = [
   {
     date: new Date(),
-    tripId: 1,
+    tripId: '' + 1,
     voucherNumber: 'fdksflds',
     description: 'slfdskfjdlksjf',
     type: BillType[1],
@@ -12,7 +12,7 @@ import BillType from '@/type/BillType';
   },
   {
     date: new Date(),
-    tripId: 2,
+    tripId: '' + 2,
     voucherNumber: 'fdksflds',
     description: 'slfdskfjdlksjf',
     type: BillType[1],
@@ -21,7 +21,7 @@ import BillType from '@/type/BillType';
   },
   {
     date: new Date(),
-    tripId: 3,
+    tripId: '' + 3,
     voucherNumber: 'fdksflds',
     description: 'slfdskfjdlksjf',
     type: BillType[1],
@@ -30,7 +30,7 @@ import BillType from '@/type/BillType';
   },
   {
     date: new Date(),
-    tripId: 4,
+    tripId: '' + 4,
     voucherNumber: 'fdksflds',
     description: 'slfdskfjdlksjf',
     type: BillType[1],
@@ -38,3 +38,4 @@ import BillType from '@/type/BillType';
     note: 'prove',
   },
 ];
+export default DummyExpense;

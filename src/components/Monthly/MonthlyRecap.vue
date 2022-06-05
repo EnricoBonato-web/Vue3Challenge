@@ -5,7 +5,7 @@ import { defineComponent } from 'vue';
 </script>
 
 <template>
-  <main>
+  <main id="list">
     <MonthlyForm :month="month" />
     <MonthlyList :month="month" />
   </main>

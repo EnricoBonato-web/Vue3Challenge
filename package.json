@@ -16,8 +16,11 @@
   "dependencies": {
     "@anivive/vue3-form-wizard": "^1.0.1",
     "vue": "^3.2.36",
+    "vue-html2pdf": "^1.8.0",
     "vue-router": "^4.0.15",
-    "vue-step-wizard": "^0.1.17"
+    "vue-step-wizard": "^0.1.17",
+    "vue3-html2pdf": "^1.1.2",
+    "vue3-simple-html2pdf": "^0.0.6"
   },
   "devDependencies": {
     "@cypress/vite-dev-server": "^2.2.3",

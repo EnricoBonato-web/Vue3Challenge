@@ -3,23 +3,9 @@
     "property": "question1",
     "text": "Trip Date",
     "type": "input",
+    "@change":"handleChange(FormData)",
     "options": {
       "type": "datetime-local"
-    },
-    "required": true
-  },
-  {
-    "property": "question2",
-    "text": "Which trip?",
-    "type": "options",
-    "options": {
-      "multiSelect": false,
-      "list": [
-        {
-          "id": 1,
-          "value": "Winter"
-        }
-      ]
     },
     "required": true
   },
@@ -36,6 +22,22 @@
         }
       },
       "placeholder": "Enter the text."
+    },
+    "required": true
+  },
+  {
+    "property": "question2",
+    "text": "Which trip?",
+    "type": "options",
+    "for":"text",
+    "options": {
+      "multiSelect": false,
+      "list": [
+        {
+          "id": 1,
+          "value": "Winter"
+        }
+      ]
     },
     "required": true
   },

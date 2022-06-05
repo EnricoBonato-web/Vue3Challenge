@@ -7,6 +7,7 @@ import CommunityIcon from './icons/IconCommunity.vue';
 import SupportIcon from './icons/IconSupport.vue';
 import type TripType from '@/type/TripType';
 import DummyTrips from './trip/DummyTrips';
+import DummyExpenses from './expenses/DummyExpenses';
 import LocalStorageVar from '../type/LocalStorageVar.js';
 </script>
 
@@ -102,7 +103,7 @@ export default {
       e.preventDefault();
       const trips: TripType[] = DummyTrips;
       localStorage.setItem(LocalStorageVar.TRIPS, JSON.stringify(trips));
-      const expenses: expenseType[] = DummyTrips;
+      const expenses: expenseType[] = DummyExpenses;
       localStorage.setItem(LocalStorageVar.EXPENSES, JSON.stringify(expenses));
       this.DataAdded = !this.DataAdded;
     },

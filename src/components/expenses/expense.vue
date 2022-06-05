@@ -6,37 +6,40 @@ import '../../assets/form.css';
 import type TripType from '@/type/TripType';
 import type ExpenseType from '@/type/ExpenseType';
 import BillType from '@/type/BillType';
+import type tripVue from '../trip/trip.vue';
+import type { inRange } from 'cypress/types/lodash';
 import LocalStorageVar from '@/type/LocalStorageVar.js';
+import VueHtml2pdf from 'vue-html2pdf'
+
 </script>
 
 <template>
-  <h1>Insert Trip</h1>
-  <vue-form-wizard
-    :form="questions"
-    v-model="formData"
-    @submit="handleForm(formData)"
-    @change="handleChange(formData)"
-  />
+  <h1>Insert Expense</h1>
+  <vue-form-wizard :form="questions" v-model="formData" @submit="handleForm(formData)" @next="handleNext" />
 </template>
 
 <script lang="ts">
 export default defineComponent({
   methods: {
+    handleNext(success) {
+      if (this.formData.question1.value != this.oldData) {
+        this.load(this.formData.question1.value as Date)
+        this.oldData = this.formData.question1.value;
+      }
+    },
     load(data: Date) {
       let updatedQuestion = wizardQuestions;
       updatedQuestion[4].options.list = [];
       updatedQuestion[4].options.list?.push(...BillType);
-      updatedQuestion[1].options.list = [];
+      updatedQuestion[2].options.list = [];
       JSON.parse(localStorage.getItem(LocalStorageVar.TRIPS)!)?.forEach((trip: TripType) => {
-        if (trip.startTime < data && data < trip.endDate)
-          updatedQuestion[1].options.list?.push({ id: +trip.id, value: trip.purpose });
+        if (data >= trip.startTime && data <= trip.endTime)
+          updatedQuestion[2].options.list?.push({ id: +trip.id, value: trip.purpose });
       });
       return updatedQuestion;
     },
-    handleChange(data: any) {
-      this.questions = this.load(data.question1.value);
-    },
     handleForm(data: any) {
+      console.log("new Expense")
       const expenseBuild: ExpenseType[] = [
         {
           date: data.question1.value,
@@ -45,21 +48,24 @@ export default defineComponent({
           description: data.question4.value,
           type: data.question5.value,
           amount: data.question6.value,
-          note: data.question7.value,
+          note: data.question7?.value || "",
         },
       ];
-      if (localStorage.getItem(LocalStorageVar.EXPENSE) !== null) {
-        const trips: ExpenseType[] = JSON.parse(localStorage.getItem(LocalStorageVar.EXPENSE)!);
+      if (localStorage.getItem(LocalStorageVar.EXPENSES) !== null) {
+        const trips: ExpenseType[] = JSON.parse(localStorage.getItem(LocalStorageVar.EXPENSES)!);
         trips.push(expenseBuild[0]);
-        localStorage.setItem(LocalStorageVar.EXPENSE, JSON.stringify(trips));
-      } else localStorage.setItem(LocalStorageVar.EXPENSE, JSON.stringify(expenseBuild));
+        localStorage.setItem(LocalStorageVar.EXPENSES, JSON.stringify(trips));
+      } else localStorage.setItem(LocalStorageVar.EXPENSES, JSON.stringify(expenseBuild));
     },
   },
   data() {
     return {
       formData: [],
+      oldData: new Date(),
       questions: this.load(new Date()),
+
     };
+
   },
 });
 </script>
