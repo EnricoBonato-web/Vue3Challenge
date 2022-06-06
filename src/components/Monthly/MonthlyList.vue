@@ -56,7 +56,6 @@ export default defineComponent({
           localStorage.getItem(LocalStorageVar.EXPENSES)!.length > 0
           ? JSON.parse(localStorage.getItem(LocalStorageVar.EXPENSES)!).filter(
             (expense: ExpenseType) => {
-              console.log(localStorage.getItem(LocalStorageVar.EXPENSES));
               return expense.tripId == id;
             },
           )
