@@ -22,20 +22,7 @@ export default defineComponent({
   data() {
     return {
       docDefinition: DataDefinition
-      /*
-toAdd:    header
-          0-text :  Spesenabrechnung
-          1-columns 0-stack['Mitarbeiter', 'Monat']
-data                1-stack: ['Demo User']
-          content. 
-          0-text: 'Reisen'
-trips     1-table - body - 0- ['Beginn', 'Ende', 'Anlass', 'Start', 'Ziel', 'Betrag(EUR)']
-          2-text: 'Belege'
-expenses  3-table - body - 0- ['Datum', 'Typ', 'Bezeichnung', 'Nummer', 'Betrag(EUR)']
-          4-columns - stack ... completed
-        
-      
-      */
+
     }
   },
   methods: {
@@ -64,36 +51,13 @@ expenses  3-table - body - 0- ['Datum', 'Typ', 'Bezeichnung', 'Nummer', 'Betrag(
           this.docDefinition.content[1].table?.body.push([this.FormattData(trip.startTime), this.FormattData(trip.endTime), trip.purpose, trip.startLocation, trip.endLocation, '1']);
         });
         //expenses
-        console.log(expenses);
         expenses.map((expense: ExpenseType) => {
           this.docDefinition.content[3].table?.body.push([this.FormattData(expense.date), expense.type.value, expense.description, expense.voucherNumber, expense.amount.toString()]);
         });
-        /*          
-        -------PageBreak---------
-toAdd   content:
-name    table - body - 0 trip name
-city                   1 trip city
-                       2 stack - 0 table - body 0 header(3)
-trip data                                       1  0 table - body - 0 Anlass
-                                                                    1 Start
-                                                                    2 Ziel
-                                                   1 table - body - 0 Beginn
-                                                                    1 Ende
-                                                   2 table - body - 0 Stecke
-                                                                    1 Fahrkosten
-                             1 table - body 0 header(2)
-                       3 text 0 Summe Kosten
-                              1 summe
-
-        */
+        //trips pages
         trips.map((trip: TripType) => {
           let TripTable: any = tripDefinition(trip);
-          //  TripTable.table.body[2][0].stack[0].table.body[1][0].table.body[0].push('test');
-          //  TripTable.table.body[2][0].stack[0].table.body[1][0].table.body[1].push('test');
-          //  TripTable.table.body[2][0].stack[0].table.body[1][0].table.body[2].push('test');
           this.docDefinition.content.push(TripTable);
-
-
         });
         pdfMake.createPdf(this.docDefinition).download();
       }
