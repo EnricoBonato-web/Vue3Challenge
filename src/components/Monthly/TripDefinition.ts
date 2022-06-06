@@ -14,10 +14,11 @@ const tripDefinition: (trip: TripType) => {} = (trip: TripType) => {
             stack: [
               {
                 layout: 'noBorders',
+                style: 'marginOr',
                 table: {
                   layout: 'noBorders',
                   body: [
-                    [{ text: 'Reisedaten' }, { text: 'Reisezeit' }, { text: 'Fahrkosten' }],
+                    ['Reisedaten', 'Reisezeit', 'Fahrkosten'],
                     [
                       {
                         layout: 'noBorders',
@@ -53,6 +54,7 @@ const tripDefinition: (trip: TripType) => {} = (trip: TripType) => {
               },
               {
                 layout: 'noBorders',
+                style: 'marginOr',
                 table: {
                   body: [
                     [{ text: 'Verpflegungspauschale' }, { text: 'Übernachtungspauschale' }],
@@ -84,7 +86,7 @@ const tripDefinition: (trip: TripType) => {} = (trip: TripType) => {
             ],
           },
         ],
-        [{ text: ['Summe Kosten', '0'], alignment: 'left' }], //TODO add summ
+        [{ text: ['Summe Kosten ', '0'], alignment: 'right' }], //TODO add summ
       ],
     },
   };

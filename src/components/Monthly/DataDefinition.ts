@@ -11,24 +11,27 @@ trips     1-table - body - 0- ['Beginn', 'Ende', 'Anlass', 'Start', 'Ziel', 'Bet
 expenses  3-table - body - 0- ['Datum', 'Typ', 'Bezeichnung', 'Nummer', 'Betrag(EUR)']
           4-columns - stack ... completed
       */
-  header: [
-    { text: 'Spesenabrechnung', style: 'header' },
-    {
-      columns: [
-        {
-          width: 'auto',
-          stack: ['Mitarbeiter', 'Monat'],
+
+  header: {
+    stack: [
+      { text: 'Spesenabrechnung', style: 'header' },
+      {
+        widths: ['auto', 'auto'],
+        layout: 'noBorders',
+        style: 'marginVe',
+        table: {
+          body: [
+            ['Mitarbeiter', 'Demo User'],
+            ['Monat', 'prova'],
+          ],
         },
-        {
-          width: 'auto',
-          stack: ['Demo User'],
-        },
-      ],
-    },
-  ],
+      },
+    ],
+  },
   footer: function (currentPage: number, pageCount: number) {
     return { text: currentPage.toString() + ' / ' + pageCount, style: 'right' };
   },
+  pageMargins: [40, 100, 40, 40],
   content: [
     { text: 'Reisen', style: 'header' },
     {
@@ -50,7 +53,7 @@ expenses  3-table - body - 0- ['Datum', 'Typ', 'Bezeichnung', 'Nummer', 'Betrag(
         body: [['Datum', 'Type', 'Bezeichnung', 'Nummer', 'Betrag(EUR)']],
       },
     },
-    { text: ['Gesamt'], style: 'right' },
+    { text: ['Gesamt ','0'], style: 'right' },
     {
       columns: [
         {
@@ -71,6 +74,9 @@ expenses  3-table - body - 0- ['Datum', 'Typ', 'Bezeichnung', 'Nummer', 'Betrag(
     },
   ],
   styles: {
+    lineHeight: 1.3,
+    marginOr: { margin: [0, 30, 0, 20] },
+    marginVe: { margin: [30, 0, 20, 0] },
     tripTable: { columngap: 'auto' },
     tableHeader: { alignment: 'center' },
     right: {
@@ -80,12 +86,13 @@ expenses  3-table - body - 0- ['Datum', 'Typ', 'Bezeichnung', 'Nummer', 'Betrag(
     header: {
       fontSize: 18,
       bold: true,
+      margin: [30, 30, 20, 10],
     },
     bigger: {
       fontSize: 15,
       italics: true,
     },
+    columnGap: 10,
   },
-  defaultStyle: {},
 };
 export default DataDefinition;

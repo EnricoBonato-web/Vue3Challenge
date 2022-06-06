@@ -7,15 +7,11 @@ import type TripType from '@/type/TripType';
 import type ExpenseType from '@/type/ExpenseType';
 import DataDefinition from './DataDefinition';
 import tripDefinition from './TripDefinition';
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
 </script>
-
 <template>
   <button @click="print()">Print {{ $props.month }}</button>
 </template>
-
 <script lang="ts">
-
 
 export default defineComponent({
   props: ['month'],
@@ -46,7 +42,6 @@ export default defineComponent({
         expenses = expenses.filter((expense: ExpenseType) => { return new Date(expense.date) < endDate && new Date(expense.date) >= startDate });
         //first page render
         //trips
-        //this.docDefinition.content.push({ columns: [{ width: "auto", stack: ['', ''] }] });
         trips.map((trip: TripType) => {
           this.docDefinition.content[1].table?.body.push([this.FormattData(trip.startTime), this.FormattData(trip.endTime), trip.purpose, trip.startLocation, trip.endLocation, '1']);
         });

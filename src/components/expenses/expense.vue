@@ -8,12 +8,18 @@ import type ExpenseType from '@/type/ExpenseType';
 import BillType from '@/type/BillType';
 import type tripVue from '../trip/trip.vue';
 import type { inRange } from 'cypress/types/lodash';
+import CustomModal from '../ModalAlert/CustomModal.vue';
 import LocalStorageVar from '@/type/LocalStorageVar';
-
 </script>
 
 <template>
   <h1>Insert Expense</h1>
+  <custom-modal v-model="show" @confirm="confirm" @cancel="cancel">
+    <template v-slot:title>Hello, vue-final-modal</template>
+    <p>Vue Final Modal is a renderless, stackable, detachable and lightweight modal component.</p>
+  </custom-modal>
+
+  <button @click="show = true">Open modal</button>
   <vue-form-wizard :form="questions" v-model="formData" @submit="handleForm(formData)" @next="handleNext" />
 </template>
 
@@ -25,7 +31,7 @@ export default defineComponent({
         this.load(this.formData.question1.value as Date)
         this.oldData = this.formData.question1.value;
       }
-    }, 
+    },
     load(data: Date) {
       let updatedQuestion = wizardQuestions;
       updatedQuestion[4].options.list = [];
@@ -55,10 +61,19 @@ export default defineComponent({
         localStorage.setItem(LocalStorageVar.EXPENSES, JSON.stringify(trips));
       } else localStorage.setItem(LocalStorageVar.EXPENSES, JSON.stringify(expenseBuild));
     },
+    confirm() {
+      // some code...
+      this.show = false
+    },
+    cancel(close: any) {
+      // some code...
+      close()
+    }
   },
   data() {
     return {
-      formData: undefined as any,
+      show: false,
+      formData: {} as any,
       oldData: new Date(),
       questions: this.load(new Date()),
 
