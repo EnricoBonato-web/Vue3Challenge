@@ -38,7 +38,6 @@ export default defineComponent({
       return updatedQuestion;
     },
     handleForm(data: any) {
-      console.log("new Expense")
       const expenseBuild: ExpenseType[] = [
         {
           date: data.question1.value,
