@@ -1,5 +1,5 @@
 const DataDefinition = {
-  content: [
+  header: [
     { text: 'Spesenabrechnung', style: 'header' },
     {
       columns: [
@@ -13,24 +13,19 @@ const DataDefinition = {
         },
       ],
     },
+  ],
+  footer: function (currentPage: number, pageCount: number) {
+    return { text: currentPage.toString() + ' / ' + pageCount, style: 'left' };
+  },
+  content: [
     { text: 'Reisen', style: 'header' },
     {
       layout: 'lightHorizontalLines',
       table: {
         headerRows: 1,
-        width: ['auto', 'auto', 'auto', 'auto', 'auto', 'auto'],
+        width: ['auto', 'auto', 200, 'auto', 'auto', 'auto'],
 
-        body: [
-          ['Beginn', 'Ende', 'Anlass', 'Start', 'Ziel', 'Betrag(EUR)'],
-          [
-            'Beginn',
-            'Ende',
-            'sadssssssssssssssssssssasdasdasdasd  sa as ssssssssssssss',
-            'Start',
-            'Ziel',
-            'Betrag(EUR)',
-          ],
-        ],
+        body: [['Beginn', 'Ende', 'Anlass', 'Start', 'Ziel', 'Betrag(EUR)']],
       },
     },
     { text: 'Belege', style: 'header' },
@@ -40,19 +35,10 @@ const DataDefinition = {
         headerRows: 1,
         width: ['auto', 'auto', 'auto', 'auto', 'auto', 'auto'],
 
-        body: [
-          ['Datum', 'Typ', 'Bezeichnung', 'Nummer', 'Betrag(EUR)'],
-          [
-            'Beginn',
-            'Ende',
-            'sadssssssssssssssssssssasdasdasdasd  sa as ssssssssssssss',
-            'Start',
-            'Ziel',
-          ],
-        ],
+        body: [['Datum', 'Type', 'Bezeichnung', 'Nummer', 'Betrag(EUR)']],
       },
     },
-    { text: 'Spesenabrechnung', style: 'header' },
+    { text: ['Gesamt'], style: 'left' },
     {
       columns: [
         {
@@ -70,13 +56,13 @@ const DataDefinition = {
           stack: ['Genehmigt:', 'Datum:'],
         },
       ],
-      style: {
-        pageBreak: 'after',
-      },
     },
-    { text: 'Spesenabrechnung', pageBreak: 'before' },
   ],
   styles: {
+    left: {
+      alignment: 'right',
+      margin: 20,
+    },
     header: {
       fontSize: 18,
       bold: true,
