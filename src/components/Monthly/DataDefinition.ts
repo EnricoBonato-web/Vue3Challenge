@@ -11,7 +11,7 @@ trips     1-table - body - 0- ['Beginn', 'Ende', 'Anlass', 'Start', 'Ziel', 'Bet
 expenses  3-table - body - 0- ['Datum', 'Typ', 'Bezeichnung', 'Nummer', 'Betrag(EUR)']
           4-columns - stack ... completed
       */
-
+  pageOrientation: 'landscape',
   header: {
     stack: [
       { text: 'Spesenabrechnung', style: 'header' },
@@ -20,10 +20,7 @@ expenses  3-table - body - 0- ['Datum', 'Typ', 'Bezeichnung', 'Nummer', 'Betrag(
         layout: 'noBorders',
         style: 'marginVe',
         table: {
-          body: [
-            ['Mitarbeiter', 'Demo User'],
-            ['Monat', 'prova'],
-          ],
+          body: [['Mitarbeiter', 'Demo User'], ['Monat']],
         },
       },
     ],
@@ -53,7 +50,7 @@ expenses  3-table - body - 0- ['Datum', 'Typ', 'Bezeichnung', 'Nummer', 'Betrag(
         body: [['Datum', 'Type', 'Bezeichnung', 'Nummer', 'Betrag(EUR)']],
       },
     },
-    { text: ['Gesamt ','0'], style: 'right' },
+    { text: ['Gesamt ', '0'], style: 'right' }, //TODO addSumm
     {
       columns: [
         {

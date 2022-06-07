@@ -76,7 +76,7 @@ export default {
   data() {
     return {
       DataAdded:
-        localStorage.getItem(LocalStorageVar.TRIPS) !== null
+        localStorage.getItem(LocalStorageVar.TRIPS) !== ''
           ? localStorage.getItem(LocalStorageVar.TRIPS)!.length > 0
             ? true
             : false

@@ -55,7 +55,7 @@ export default defineComponent({
           note: data.question7?.value || "",
         },
       ];
-      if (localStorage.getItem(LocalStorageVar.EXPENSES) !== null) {
+      if (localStorage.getItem(LocalStorageVar.EXPENSES) !== '') {
         const trips: ExpenseType[] = JSON.parse(localStorage.getItem(LocalStorageVar.EXPENSES)!);
         trips.push(expenseBuild[0]);
         localStorage.setItem(LocalStorageVar.EXPENSES, JSON.stringify(trips));
