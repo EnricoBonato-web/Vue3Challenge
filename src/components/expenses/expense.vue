@@ -6,13 +6,16 @@ import '../../assets/form.css';
 import type TripType from '@/type/TripType';
 import type ExpenseType from '@/type/ExpenseType';
 import BillType from '@/type/BillType';
-import type tripVue from '../trip/trip.vue';
-import type { inRange } from 'cypress/types/lodash';
 import LocalStorageVar from '@/type/LocalStorageVar';
 </script>
 
 <template>
-  <vue-form-wizard :form="questions" v-model="formData" @submit="handleForm(formData)" @next="handleNext" />
+  <h1>Insert Expense</h1>
+  <form ref="test">
+
+    <vue-form-wizard ref="test" :form="questions" v-model="formData" @submit="handleForm(formData)"
+      @next="handleNext" />
+  </form>
 </template>
 
 <script lang="ts">
@@ -52,8 +55,11 @@ export default defineComponent({
         trips.push(expenseBuild[0]);
         localStorage.setItem(LocalStorageVar.EXPENSES, JSON.stringify(trips));
       } else localStorage.setItem(LocalStorageVar.EXPENSES, JSON.stringify(expenseBuild));
+
+      this.formData.reset();
+
     },
-   
+
   },
   data() {
     return {
