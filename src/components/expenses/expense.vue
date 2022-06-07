@@ -32,10 +32,13 @@ export default defineComponent({
       updatedQuestion[4].options.list = [];
       updatedQuestion[4].options.list.push(...BillType);
       updatedQuestion[2].options.list = [];
-      JSON.parse(localStorage.getItem(LocalStorageVar.TRIPS)!)?.forEach((trip: TripType) => {
-        if (data >= trip.startTime && data <= trip.endTime)
-          updatedQuestion[2].options.list?.push({ id: +trip.id, value: trip.purpose });
-      });
+      if (localStorage.getItem(LocalStorageVar.TRIPS) != '')
+        if (localStorage.getItem(LocalStorageVar.TRIPS) != null) {
+          JSON.parse(localStorage.getItem(LocalStorageVar.TRIPS)!)?.forEach((trip: TripType) => {
+            if (data >= trip.startTime && data <= trip.endTime)
+              updatedQuestion[2].options.list?.push({ id: +trip.id, value: trip.purpose });
+          });
+        }
       return updatedQuestion;
     },
     handleForm(data: any) {

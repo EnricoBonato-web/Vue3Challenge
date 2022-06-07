@@ -11,17 +11,17 @@ import DummyTrips from './trip/DummyTrips';
 import DummyExpenses from './expenses/DummyExpenses';
 import LocalStorageVar from '../type/LocalStorageVar';
 </script>
-
 <template>
+  <WelcomeItem>
+    <h1>VueJS Coding Challenge</h1>
+
+  </WelcomeItem>
   <WelcomeItem>
     <template #icon>
       <DocumentationIcon />
     </template>
-    <template #heading>Documentation</template>
-
-    Vue’s
-    <a target="_blank" href="https://vuejs.org/">official documentation</a>
-    provides you with all information you need to get started.
+    Welcome to my implementation of the VueJS Coding Challenge, in this page you can find some information about my
+    implementation.
   </WelcomeItem>
 
   <WelcomeItem>
@@ -30,18 +30,12 @@ import LocalStorageVar from '../type/LocalStorageVar';
     </template>
     <template #heading>Tooling</template>
 
-    This project is served and bundled with
-    <a href="https://vitejs.dev/guide/features.html" target="_blank">Vite</a>. The recommended IDE
-    setup is <a href="https://code.visualstudio.com/" target="_blank">VSCode</a> +
-    <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>. If you need to test
-    your components and web pages, check out
-    <a href="https://www.cypress.io/" target="_blank">Cypress</a> and
-    <a href="https://docs.cypress.io/guides/component-testing/introduction" target="_blank">Cypress Component
-      Testing</a>.
-
-    <br />
-
-    More instructions are available in <code>README.md</code>.
+    <p>This project is build using Vue3, Typescript, Javascript , HTML and Css.</p>
+    <p>Some external modules that i have used are:
+      <a h-ref="https://github.com/Anivive/vue3-form-wizard">vue3-form-wizard</a>,
+      <a h-ref="http://pdfmake.org/#/">pdfmake</a>
+    </p>
+    Test implemented using <a href="https://www.cypress.io/">Cypress</a>.
   </WelcomeItem>
 
   <WelcomeItem>
@@ -50,39 +44,25 @@ import LocalStorageVar from '../type/LocalStorageVar';
     </template>
     <template #heading>Dummy Data</template>
 
-    Get official tools and libraries for your project:
-    <form id="add" @submit="Add($event)">
-      <button type="submit" :disabled="DataAdded">Add Dummy Data</button>
-    </form>
-    <form if="remove" @submit="Remove($event)">
-      <button type="submit" :disabled="!DataAdded">Remove Dummy Data</button>
-    </form>
+    To better test this application i have prepared some Dummy datas that can be added to the local storage:
+    <div class="styleButtons">
+
+      <form id="add" @submit="Add($event)">
+        <button type="submit" :disabled="DataAdded">Add Dummy Data</button>
+      </form>
+      <form if="remove" @submit="Remove($event)">
+        <button type="submit" :disabled="!DataAdded">Remove Data</button>
+      </form>
+    </div>
   </WelcomeItem>
 
-  <WelcomeItem>
-    <template #icon>
-      <CommunityIcon />
-    </template>
-    <template #heading>Community</template>
 
-    Got stuck? Ask your question on
-    <a target="_blank" href="https://chat.vuejs.org">Vue Land</a>, our official Discord server, or
-    <a target="_blank" href="https://stackoverflow.com/questions/tagged/vue.js">StackOverflow</a>.
-    You should also subscribe to
-    <a target="_blank" href="https://news.vuejs.org">our mailing list</a> and follow the official
-    <a target="_blank" href="https://twitter.com/vuejs">@vuejs</a>
-    twitter account for latest news in the Vue world.
-  </WelcomeItem>
 
   <WelcomeItem>
     <template #icon>
       <SupportIcon />
     </template>
-    <template #heading>Support Vue</template>
-
-    As an independent project, Vue relies on community backing for its sustainability. You can help
-    us by
-    <a target="_blank" href="https://vuejs.org/sponsor/">becoming a sponsor</a>.
+    Hope you enjoy my project, looking forward to hear reviw about it.
   </WelcomeItem>
 </template>
 <script lang="ts">
@@ -122,3 +102,9 @@ export default {
   },
 };
 </script>
+<style>
+dummyData {
+  display: flex;
+  flex-direction: row;
+}
+</style>

@@ -5,9 +5,11 @@ import { defineComponent } from 'vue';
 </script>
 
 <template>
+
   <main id="list">
-    <MonthlyForm :month="month" />
-    <MonthlyList :month="month" />
+    <h1>Monthly Recap</h1>
+    <MonthlyForm />
+    <MonthlyList />
   </main>
 </template>
 

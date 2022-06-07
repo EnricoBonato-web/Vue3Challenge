@@ -7,7 +7,7 @@ import LocalStorageVar from '../../type/LocalStorageVar';
 import ListItem from './ListItem.vue';
 </script>
 <template >
-  <div id="list" v-if="DataAdded !== null">
+  <div id="list" v-if="DataAdded != []">
     <ul>
       <div v-for="trip in filteredTrip()">
         <li>
@@ -28,16 +28,15 @@ import ListItem from './ListItem.vue';
     </ul>
   </div>
   <div v-else>
-    <h1>No trip found during this mounth</h1>
+    <h3 class="error">No trip found during this mounth</h3>
   </div>
 </template>
 
 <script lang="ts">
 export default defineComponent({
-  props: ['month'],
   data() {
     return {
-      DataAdded: (localStorage.getItem(LocalStorageVar.TRIPS) &&
+      DataAdded: (localStorage.getItem(LocalStorageVar.TRIPS) != '' &&
         localStorage.getItem(LocalStorageVar.TRIPS)!.length > 0
         ? JSON.parse(localStorage.getItem(LocalStorageVar.TRIPS)!)
         : []) as TripType[],
@@ -66,6 +65,11 @@ export default defineComponent({
 });
 </script>
 <style>
+.error {
+  margin: 20px;
+  color: red;
+}
+
 #list {
   width: 100%;
   height: 80%;

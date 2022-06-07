@@ -8,14 +8,17 @@ DataSelected.data =
 </script>
 
 <template>
-  <input type="month" v-model="DataSelected.data" />
-  <MonthlyPrint :month="DataSelected.data" />
+  <div class="styleButtons">
+
+    <input type="month" v-model="DataSelected.data" />
+    <MonthlyPrint :month="DataSelected.data" />
+  </div>
 </template>
 
 <script lang="ts">
 export default defineComponent({
   props: ['month'],
 
-  
+
 });
 </script>

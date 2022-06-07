@@ -21,6 +21,14 @@ import HomeView from './views/HomeView.vue';
 <style>
 @import '@/assets/base.css';
 
+.styleButtons {
+  display: flex;
+  width: 100%;
+  gap: 10px 20px;
+  justify-content: center;
+  flex-direction: row;
+}
+
 #app {
   max-width: 1280px;
   width: 100%;
@@ -34,6 +42,7 @@ import HomeView from './views/HomeView.vue';
   text-align: center;
   color: #2c3e50;
 }
+
 header {
   line-height: 1.5;
   max-height: 100vh;
@@ -118,6 +127,7 @@ nav a:first-of-type {
     padding: 1rem 0;
     margin-top: 1rem;
   }
+
   .column {
     display: flex;
     flex-direction: column;
