@@ -51,10 +51,10 @@ import LocalStorageVar from '../type/LocalStorageVar';
     <template #heading>Dummy Data</template>
 
     Get official tools and libraries for your project:
-    <form @submit="Add($event)">
+    <form id="add" @submit="Add($event)">
       <button type="submit" :disabled="DataAdded">Add Dummy Data</button>
     </form>
-    <form @submit="Remove($event)">
+    <form if="remove" @submit="Remove($event)">
       <button type="submit" :disabled="!DataAdded">Remove Dummy Data</button>
     </form>
   </WelcomeItem>
