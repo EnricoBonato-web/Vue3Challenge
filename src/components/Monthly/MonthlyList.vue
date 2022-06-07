@@ -7,7 +7,7 @@ import LocalStorageVar from '../../type/LocalStorageVar';
 import ListItem from './ListItem.vue';
 </script>
 <template >
-  <div id="list" v-if="DataAdded != []">
+  <div id="list" v-if="filteredTrip().toString() != ''">
     <ul>
       <div v-for="trip in filteredTrip()">
         <li>
@@ -46,7 +46,6 @@ export default defineComponent({
     filteredTrip() {
       return this.DataAdded.filter((trip: TripType) => {
         return new Date(trip.startTime).getMonth() + 1 == +DataSelected.data.substring(5, 7);
-        return false;
       });
     },
     getExpense(id: string): ExpenseType[] {

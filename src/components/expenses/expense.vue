@@ -11,9 +11,10 @@ import LocalStorageVar from '@/type/LocalStorageVar';
 
 <template>
   <h1>Insert Expense</h1>
-  <form ref="test">
+  <h3 v-if="success" class="succes">No trip found during this mounth</h3>
+  <form>
 
-    <vue-form-wizard ref="test" :form="questions" v-model="formData" @submit="handleForm(formData)"
+    <vue-form-wizard :key="reload" :form="questions" v-model="formData" @submit="handleForm(formData)"
       @next="handleNext" />
   </form>
 </template>
@@ -22,6 +23,7 @@ import LocalStorageVar from '@/type/LocalStorageVar';
 export default defineComponent({
   methods: {
     handleNext() {
+      this.success = false;
       if (this.formData.question1.value != this.oldData) {
         this.load(this.formData.question1.value as Date)
         this.oldData = this.formData.question1.value;
@@ -58,14 +60,17 @@ export default defineComponent({
         trips.push(expenseBuild[0]);
         localStorage.setItem(LocalStorageVar.EXPENSES, JSON.stringify(trips));
       } else localStorage.setItem(LocalStorageVar.EXPENSES, JSON.stringify(expenseBuild));
-
-      this.formData.reset();
+      this.formData = [];
+      this.success = true;
+      this.reload = !this.reload;// used to reload
 
     },
 
   },
   data() {
     return {
+      reload: false,
+      success: false,
       formData: {} as any,
       oldData: new Date(),
       questions: this.load(new Date()),

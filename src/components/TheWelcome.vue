@@ -50,6 +50,9 @@ import LocalStorageVar from '../type/LocalStorageVar';
       <form id="add" @submit="Add($event)">
         <button type="submit" :disabled="DataAdded">Add Dummy Data</button>
       </form>
+      <form id="add" @submit="Add($event)">
+        <button type="submit" :disabled="DataAdded">Add Exemple Data</button>
+      </form>
       <form if="remove" @submit="Remove($event)">
         <button type="submit" :disabled="!DataAdded">Remove Data</button>
       </form>

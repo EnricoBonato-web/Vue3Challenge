@@ -132,5 +132,18 @@ nav a:first-of-type {
     display: flex;
     flex-direction: column;
   }
+
+
+}
+
+.error {
+  margin: 20px;
+  color: red;
+}
+
+.success {
+  margin-bottom: -1em;
+  margin: 20px;
+  color: green;
 }
 </style>

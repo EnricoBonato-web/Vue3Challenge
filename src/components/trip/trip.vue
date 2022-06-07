@@ -7,9 +7,10 @@ import type TripType from '@/type/TripType';
 import LocalStorageVar from '@/type/LocalStorageVar';
 </script>
 
-<template>
+<template >
   <h1>Insert trip</h1>
-  <vue-form-wizard :form="wizardQuestions" v-model="formData" @submit="handleForm(formData)" />
+  <h3 class="success" v-if="success">Trip inserted successfully</h3>
+  <vue-form-wizard :key="reload" :form="wizardQuestions" v-model="formData" @submit="handleForm(formData)" />
 </template>
 
 <script lang="ts">
@@ -31,16 +32,21 @@ export default defineComponent({
           dinners: data.question10.value,
         },
       ];
-      if (localStorage.getItem(LocalStorageVar.TRIPS) !== undefined) {
+      if (localStorage.getItem(LocalStorageVar.TRIPS) !== '') {
         const trips: TripType[] = JSON.parse(localStorage.getItem(LocalStorageVar.TRIPS)!);
         trips.push(tripBuild[0]);
         localStorage.setItem(LocalStorageVar.TRIPS, JSON.stringify(trips));
       } else localStorage.setItem(LocalStorageVar.TRIPS, JSON.stringify(tripBuild));
+      this.formData = [];
+      this.success = true;
+      this.reload = !this.reload;// used to reload
     },
   },
   data() {
     return {
-      formData: [],
+      success: false,
+      reload: false,
+      formData: [] as any,
       wizardQuestions: wizardQuestions,
     };
   },
