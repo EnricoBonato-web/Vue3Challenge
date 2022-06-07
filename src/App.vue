@@ -35,7 +35,6 @@ import HomeView from './views/HomeView.vue';
   height: 100%;
   margin: 0;
   padding: 1rem;
-  font-weight: normal;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -5,6 +5,7 @@ import { defineComponent } from 'vue';
 import { DataSelected } from '@/components/Monthly/DataState.vue';
 import LocalStorageVar from '../../type/LocalStorageVar';
 import ListItem from './ListItem.vue';
+import { FormattData,FormattEuro } from '@/type/UtilityFunctions';
 </script>
 <template >
   <div id="list" v-if="filteredTrip().toString() != ''">
@@ -13,11 +14,15 @@ import ListItem from './ListItem.vue';
         <li>
           <ListItem>
 
-            <template #heading>trip: {{ trip.purpose }}</template>
+            <template #heading>
+              <h3 class="bold"> {{ trip.purpose }}</h3> {{ trip.startLocation }} - {{ trip.endLocation }}
+              from: {{ FormattData(trip.startTime) }} to:{{ FormattData(trip.endTime) }}
+
+            </template>
             <ul>
               <div v-for="expense in getExpense(trip.id)">
                 <li>
-                  <p>{{ expense.voucherNumber }} {{ expense.description }} {{ expense.amount }}
+                  <p>{{ expense.description }} Total: {{ FormattEuro(expense.amount) }}
                   </p>
                 </li>
               </div>
