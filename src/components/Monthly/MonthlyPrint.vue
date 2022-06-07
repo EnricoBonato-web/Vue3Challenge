@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { defineComponent } from 'vue';
 import * as pdfMake from 'pdfmake/build/pdfmake.js';
-import * as pdfFonts from 'pdfmake/build/vfs_fonts.js';
 import LocalStorageVar from '@/type/LocalStorageVar';
 import type TripType from '@/type/TripType';
 import type ExpenseType from '@/type/ExpenseType';
 import DataDefinition from './DataDefinition';
 import tripDefinition from './TripDefinition';
+import pdfFonts from "pdfmake/build/vfs_fonts";
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 </script>
 <template>
   <button @click="print()">Print {{ $props.month }}</button>

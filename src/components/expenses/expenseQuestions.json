@@ -69,7 +69,7 @@
   },
   {
     "property": "question6",
-    "text": "What is your favorite number between 3 and 40?",
+    "text": "Amount",
     "type": "input",
     "options": {
       "type": "number",
