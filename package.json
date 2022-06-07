@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@anivive/vue3-form-wizard": "^1.0.1",
+    "@cypress/webpack-dev-server": "^1.8.4",
     "eslint": "^8.17.0",
     "pdfmake": "^0.2.5",
     "vue": "^3.2.36",
@@ -24,7 +25,7 @@
   },
   "devDependencies": {
     "@cypress/vite-dev-server": "^2.2.3",
-    "@cypress/vue": "^3.1.2",
+    "@cypress/vue": "^3.1.0",
     "@rushstack/eslint-patch": "^1.1.0",
     "@types/node": "^16.11.36",
     "@types/pdfmake": "^0.1.21",
