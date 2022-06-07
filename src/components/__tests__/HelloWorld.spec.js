@@ -6,10 +6,6 @@ describe('HelloWorld', () => {
     mount(TheWelcome, {});
   });
 
-  it('has h3', () => {
-    mount(TheWelcome, { props: { msg: 'Hello Cypress' } });
-    cy.get('h3').should('contain', 'Documentation');
-  });
   it('renders 1 h3', () => {
     mount(TheWelcome, { props: { msg: 'Hello Cypress' } });
     cy.get(':nth-child(1) > .details > h3').should('exist');
@@ -30,7 +26,7 @@ describe('HelloWorld', () => {
     mount(TheWelcome, { props: { msg: 'Hello Cypress' } });
     cy.get(':nth-child(5) > .details > h3').should('exist');
   });
-  it('renders 5 h3', () => {
+  it('renders 6 h3', () => {
     mount(TheWelcome, { props: { msg: 'Hello Cypress' } });
     cy.get(':nth-child(6) > .details > h3').should('not.exist');
   });
