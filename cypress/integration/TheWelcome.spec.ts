@@ -1,8 +1,6 @@
-import { EMPTY_ARR } from '@vue/shared';
 import LocalStorageVar from '../../src/type/LocalStorageVar';
 import ExampleTrip from '../../src/components/trip/ExampleTrip';
 import ExampleExpense from '../../src/components/expenses/ExampleExpense';
-import type BillType from './../../src/type/BillType';
 describe('TheWelcome page load test', () => {
   it('successfully loads', () => {
     cy.visit('/');

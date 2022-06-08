@@ -1,66 +1,58 @@
-import { EMPTY_ARR } from '@vue/shared';
 import LocalStorageVar from '../../src/type/LocalStorageVar';
-import ExampleTrip from '../../src/components/trip/ExampleTrip';
-import ExampleExpense from '../../src/components/expenses/ExampleExpense';
-import type BillType from './../../src/type/BillType';
 describe('TheWelcome page load test', () => {
-  it('successfully loads', () => {
-    cy.visit('/');
+  it('Successfully loads', () => {
+    cy.visit('/trip');
   });
-
   it('Empty Local Storage', () => {
-    cy.visit('/');
+    cy.visit('/trip');
     expect(localStorage.getItem(LocalStorageVar.TRIPS)).null;
     expect(localStorage.getItem(LocalStorageVar.EXPENSES)).null;
   });
-  it('Add buttons active', () => {
-    cy.visit('/');
-    cy.get(':nth-child(1) > button').should('not.be.disabled');
-    cy.get(':nth-child(2) > button').should('not.be.disabled');
+  it('Disabled Buttons', () => {
+    cy.visit('/trip');
+    cy.get('.control-container > :nth-child(1)').should('be.disabled');
+    cy.get('.control-container > :nth-child(2)').should('be.disabled');
+    cy.get('.control-container > :nth-child(3)').should('be.disabled');
   });
-  it('Remove button not active', () => {
-    cy.visit('/');
-    cy.get('[if="remove"] > button').should('be.disabled');
+  it('Can Enter Text', () => {
+    cy.visit('/trip');
+    cy.get('input').type('Test');
+
+    cy.get('.control-container > :nth-child(3)').should('not.be.disabled');
   });
-});
-describe('TheWelcome Buttons Test', () => {
-  it('Add Dummy Data', () => {
-    cy.visit('/');
-    cy.get(':nth-child(1) > button')
+  it('Next abled', () => {
+    cy.visit('/trip');
+    cy.get('input').type('Test');
+    cy.get('.control-container > :nth-child(3)').should('not.be.disabled');
+  });
+  it('Error shown', () => {
+    cy.visit('/trip');
+    cy.get('input').type('e');
+    cy.get('.control-container > :nth-child(3)')
       .click()
-      .then($btn => {
-        expect(localStorage.getItem(LocalStorageVar.TRIPS)).not.null;
-        expect(localStorage.getItem(LocalStorageVar.EXPENSES)).not.null;
-        cy.get(':nth-child(1) > button').should('be.disabled');
-        cy.get(':nth-child(2) > button').should('be.disabled');
-        cy.get('[if="remove"] > button').should('not.be.disabled');
+      .then(() => {
+        cy.get('.error-container > div').should('be.visible');
       });
   });
 
-  it('Add Example Data', () => {
-    cy.visit('/');
-    cy.get(':nth-child(2) > button')
+  it('Error gone', () => {
+    cy.visit('/trip');
+    cy.get('input').type('t');
+    cy.get('.control-container > :nth-child(3)')
       .click()
-      .then($btn => {
-        expect(localStorage.getItem(LocalStorageVar.TRIPS)).not.null;
-        expect(localStorage.getItem(LocalStorageVar.EXPENSES)).not.null;
-        cy.get(':nth-child(1) > button').should('be.disabled');
-        cy.get(':nth-child(2) > button').should('be.disabled');
-        cy.get('[if="remove"] > button').should('not.be.disabled');
+      .then(() => {
+        cy.get('input').type('est');
+        cy.get('.error-container > div').should('not.exist');
       });
   });
-  it('Remove Data', () => {
-    localStorage.setItem(LocalStorageVar.TRIPS, JSON.stringify(ExampleTrip));
-    localStorage.setItem(LocalStorageVar.EXPENSES, JSON.stringify(ExampleExpense));
-    cy.visit('/');
-    cy.get(':nth-child(3) > button')
+  it('Start Data shown', () => {
+    cy.visit('/trip');
+    cy.get('input').type('test');
+    cy.get('.control-container > :nth-child(3)')
       .click()
-      .then($btn => {
-        expect(localStorage.getItem(LocalStorageVar.TRIPS)).equal('');
-        expect(localStorage.getItem(LocalStorageVar.EXPENSES)).equal('');
-        cy.get(':nth-child(1) > button').should('not.be.disabled');
-        cy.get(':nth-child(2) > button').should('not.be.disabled');
-        cy.get('[if="remove"] > button').should('be.disabled');
+      .then(() => {
+        cy.get('.input-component').contains('Start time');
+        cy.get('.error-container > div').should('not.exist');
       });
   });
 });
