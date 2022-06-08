@@ -10,6 +10,8 @@ trips     1-table - body - 0- ['Beginn', 'Ende', 'Anlass', 'Start', 'Ziel', 'Bet
 expenses  3-table - body - 0- ['Datum', 'Typ', 'Bezeichnung', 'Nummer', 'Betrag(EUR)']
           4-columns - stack ... completed
       */
+import type TripType from '@/type/TripType';
+// eslint-disable-next-line @typescript-eslint/ban-types
 const DataDefinition: (date: string) => {} = (date: string) => {
   return {
     pageOrientation: 'landscape',

@@ -26,60 +26,61 @@ export default defineComponent({
   methods: {
     print() {
 
-      let sum: number = 0;
+      let sum = 0;
       this.docDefinition = DataDefinition(this.$props.month);
-      if (localStorage.getItem(LocalStorageVar.EXPENSES) !== '' && localStorage.getItem(LocalStorageVar.TRIPS) !== '') {
-        const startDate = new Date(Date.parse(this.$props.month + '-01'));
-        const endDate = new Date(Date.parse(this.$props.month + '-01'));
-        endDate.setMonth(endDate.getMonth() + 1)
+      if (localStorage.getItem(LocalStorageVar.EXPENSES) !== null && localStorage.getItem(LocalStorageVar.TRIPS) !== null)
+        if (localStorage.getItem(LocalStorageVar.EXPENSES) !== '' && localStorage.getItem(LocalStorageVar.TRIPS) !== '') {
+          const startDate = new Date(Date.parse(this.$props.month + '-01'));
+          const endDate = new Date(Date.parse(this.$props.month + '-01'));
+          endDate.setMonth(endDate.getMonth() + 1)
 
-        let trips: TripType[];
-        trips = JSON.parse(localStorage.getItem(LocalStorageVar.TRIPS)!);
-        trips = trips.filter((trip: TripType) => { return new Date(trip.startTime) < endDate && new Date(trip.endTime) >= startDate });
+          let trips: TripType[];
+          trips = JSON.parse(localStorage.getItem(LocalStorageVar.TRIPS));
+          trips = trips.filter((trip: TripType) => { return new Date(trip.startTime) < endDate && new Date(trip.endTime) >= startDate });
 
-        let expenses: ExpenseType[];
-        expenses = JSON.parse(localStorage.getItem(LocalStorageVar.EXPENSES)!);
-        expenses = expenses.filter((expense: ExpenseType) => { return new Date(expense.date) < endDate && new Date(expense.date) >= startDate });
-        //first page render
-        //trips
+          let expenses: ExpenseType[];
+          expenses = JSON.parse(localStorage.getItem(LocalStorageVar.EXPENSES));
+          expenses = expenses.filter((expense: ExpenseType) => { return new Date(expense.date) < endDate && new Date(expense.date) >= startDate });
+          //first page render
+          //trips
 
-        trips.map((trip: TripType) => {
-          let amount = CalcDate(new Date(trip.startTime), new Date(trip.endTime))
-            - 4.8 * trip.breakfasts
-            - 9.6 * trip.lunches
-            - 9.6 * trip.dinners
-            + (trip.kilometersTravelled / (10 / 3));
-          // amount += trip.overnight * 20;
-          sum += amount;
-          this.docDefinition.content[1].table?.body.push([
-            FormattData(trip.startTime),
-            FormattData(trip.endTime),
-            trip.purpose,
-            trip.startLocation,
-            trip.endLocation,
-            FormattEuro(amount)]);
-        });
-        //expenses
-        expenses.map((expense: ExpenseType) => {
-          this.docDefinition.content[3].table?.body.push([
-            FormattData(expense.date),
-            expense.type.value,
-            expense.description,
-            expense.voucherNumber,
-            FormattEuro(expense.amount.toString())]);
-          sum += expense.amount;
-        });
+          trips.map((trip: TripType) => {
+            let amount = CalcDate(new Date(trip.startTime), new Date(trip.endTime))
+              - 4.8 * trip.breakfasts
+              - 9.6 * trip.lunches
+              - 9.6 * trip.dinners
+              + (trip.kilometersTravelled / (10 / 3));
+            // amount += trip.overnight * 20;
+            sum += +amount;
+            this.docDefinition.content[1].table?.body.push([
+              FormattData(trip.startTime),
+              FormattData(trip.endTime),
+              trip.purpose,
+              trip.startLocation,
+              trip.endLocation,
+              FormattEuro(amount)]);
+          });
+          //expenses
+          expenses.map((expense: ExpenseType) => {
+            sum += +expense.amount;
+            this.docDefinition.content[3].table?.body.push([
+              FormattData(expense.date),
+              expense.type.value,
+              expense.description,
+              expense.voucherNumber,
+              FormattEuro(expense.amount.toString())]);
+          });
 
-        this.docDefinition.content[4].text[1] = (FormattEuro(sum));
+          this.docDefinition.content[4].text[1] = (FormattEuro(sum));
 
-        //trips pages
-        trips.map((trip: TripType) => {
-          let TripTable: any = tripDefinition(trip);
-          this.docDefinition.content.push(TripTable);
-        });
+          //trips pages
+          trips.map((trip: TripType) => {
+            let TripTable = tripDefinition(trip);
+            this.docDefinition.content.push(TripTable);
+          });
 
-        pdfMake.createPdf(this.docDefinition).download();
-      }
+          pdfMake.createPdf(this.docDefinition).download();
+        }
     }
   }
 });

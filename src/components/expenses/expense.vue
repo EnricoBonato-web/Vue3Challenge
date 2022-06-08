@@ -10,12 +10,14 @@ import LocalStorageVar from '@/type/LocalStorageVar';
 </script>
 
 <template>
-  <h1>Insert Expense</h1>
-  <h3 v-if="success" class="success">Expense insertet correctly</h3>
-  <form>
-    <vue-form-wizard :key="reload" :form="questions" v-model="formData" @submit="handleForm(formData)"
-      @next="handleNext" />
-  </form>
+  <div>
+    <h1>Insert Expense</h1>
+    <h3 v-if="success" class="success">Expense inserted correctly</h3>
+    <form>
+      <vue-form-wizard :key="reload" :form="questions" v-model="formData" @submit="handleForm(formData)"
+        @next="handleNext" />
+    </form>
+  </div>
 </template>
 
 <script lang="ts">
@@ -37,7 +39,7 @@ export default defineComponent({
       updatedQuestion[2].options.list = [];
       if (localStorage.getItem(LocalStorageVar.TRIPS) != '')
         if (localStorage.getItem(LocalStorageVar.TRIPS) != null) {
-          JSON.parse(localStorage.getItem(LocalStorageVar.TRIPS)!)?.forEach((trip: TripType) => {
+          JSON.parse(localStorage.getItem(LocalStorageVar.TRIPS)).forEach((trip: TripType) => {
             if (data >= trip.startTime && data <= trip.endTime)
               updatedQuestion[2].options.list?.push({ id: +trip.id, value: trip.purpose });
           });
@@ -52,13 +54,13 @@ export default defineComponent({
           tripId: data.question2.value[0].id,
           voucherNumber: data.question3.value,
           description: data.question4.value,
-          type: data.question5.value,
+          type: data.question5.value[0],
           amount: data.question6.value,
           note: data.question7?.value || "",
         },
       ];
       if (localStorage.getItem(LocalStorageVar.EXPENSES) !== '') {
-        const trips: ExpenseType[] = JSON.parse(localStorage.getItem(LocalStorageVar.EXPENSES)!);
+        const trips: ExpenseType[] = JSON.parse(localStorage.getItem(LocalStorageVar.EXPENSES));
         trips.push(expenseBuild[0]);
         localStorage.setItem(LocalStorageVar.EXPENSES, JSON.stringify(trips));
       } else localStorage.setItem(LocalStorageVar.EXPENSES, JSON.stringify(expenseBuild));

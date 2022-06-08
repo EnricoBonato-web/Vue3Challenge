@@ -13,60 +13,63 @@ import ExampleTrips from './trip/ExampleTrip';
 import ExampleExpense from './expenses/ExampleExpense';
 </script>
 <template>
-  <WelcomeItem>
-    <h1>VueJS Coding Challenge</h1>
+  <div>
 
-  </WelcomeItem>
-  <WelcomeItem>
-    <template #icon>
-      <DocumentationIcon />
-    </template>
-    Welcome to my implementation of the VueJS Coding Challenge, in this page you can find some information about my
-    implementation.
-  </WelcomeItem>
+    <WelcomeItem>
+      <h1>VueJS Coding Challenge</h1>
 
-  <WelcomeItem>
-    <template #icon>
-      <ToolingIcon />
-    </template>
-    <template #heading>Tooling</template>
+    </WelcomeItem>
+    <WelcomeItem>
+      <template #icon>
+        <DocumentationIcon />
+      </template>
+      Welcome to my implementation of the VueJS Coding Challenge, in this page you can find some information about my
+      implementation.
+    </WelcomeItem>
 
-    <p>This project is built using Vue3, Typescript, Javascript , HTML and Css.</p>
-    <p>Some external modules that I have used are:
-      <a h-ref="https://github.com/Anivive/vue3-form-wizard">vue3-form-wizard</a>,
-      <a h-ref="http://pdfmake.org/#/">pdfmake</a>
-    </p>
-    Test implemented using <a href="https://www.cypress.io/">Cypress</a>.
-  </WelcomeItem>
+    <WelcomeItem>
+      <template #icon>
+        <ToolingIcon />
+      </template>
+      <template #heading>Tooling</template>
 
-  <WelcomeItem>
-    <template #icon>
-      <EcosystemIcon />
-    </template>
-    <template #heading>Dummy Data</template>
+      <p>This project is built using Vue3, Typescript, Javascript , HTML and Css.</p>
+      <p>Some external modules that I have used are:
+        <a h-ref="https://github.com/Anivive/vue3-form-wizard">vue3-form-wizard</a>,
+        <a h-ref="http://pdfmake.org/#/">pdfmake</a>
+      </p>
+      Test implemented using <a href="https://www.cypress.io/">Cypress</a>.
+    </WelcomeItem>
 
-    To better test this application I have prepared some Dummy data that can be added to the local storage:
-    <div class="styleButtons">
+    <WelcomeItem>
+      <template #icon>
+        <EcosystemIcon />
+      </template>
+      <template #heading>Dummy Data</template>
 
-      <form id="add" @submit="Add($event)">
-        <button type="submit" :disabled="DataAdded">Add Dummy Data</button>
-      </form>
-      <form id="add" @submit="AddExample($event)">
-        <button type="submit" :disabled="DataAdded">Add Example Data</button>
-      </form>
-      <form if="remove" @submit="Remove($event)">
-        <button type="submit" :disabled="!DataAdded">Remove Data</button>
-      </form>
-    </div>
-  </WelcomeItem>
+      To better test this application I have prepared some Dummy data that can be added to the local storage:
+      <div class="styleButtons">
+
+        <form id="add" @submit="Add($event)">
+          <button type="submit" :disabled="DataAdded">Add Dummy Data</button>
+        </form>
+        <form id="add" @submit="AddExample($event)">
+          <button type="submit" :disabled="DataAdded">Add Example Data</button>
+        </form>
+        <form if="remove" @submit="Remove($event)">
+          <button type="submit" :disabled="!DataAdded">Remove Data</button>
+        </form>
+      </div>
+    </WelcomeItem>
 
 
 
-  <WelcomeItem>
-    <template #icon>
-      <SupportIcon />
-    </template>Hope you enjoy my project, looking forward to hearing a reviw about it.
-  </WelcomeItem>
+    <WelcomeItem>
+      <template #icon>
+        <SupportIcon />
+      </template>Hope you enjoy my project, looking forward to hearing a reviw about it.
+    </WelcomeItem>
+  </div>
 </template>
     <script lang="ts">
 

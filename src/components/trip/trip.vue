@@ -8,9 +8,12 @@ import LocalStorageVar from '@/type/LocalStorageVar';
 </script>
 
 <template >
-  <h1>Insert trip</h1>
-  <h3 class="success" v-if="success">Trip inserted successfully</h3>
-  <vue-form-wizard :key="reload" :form="wizardQuestions" v-model="formData" @submit="handleForm(formData)" />
+  <div>
+
+    <h1>Insert trip</h1>
+    <h3 class="success" v-if="success">Trip inserted successfully</h3>
+    <vue-form-wizard :key="reload" :form="wizardQuestions" v-model="formData" @submit="handleForm(formData)" />
+  </div>
 </template>
 
 <script lang="ts">

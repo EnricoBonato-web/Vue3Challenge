@@ -1,3 +1,4 @@
-const TRIPS:string = 'TRIPS';
-const EXPENSES:string = 'EXPENSES';
+const TRIPS = 'TRIPS';
+const EXPENSES = 'EXPENSES';
 export default { TRIPS: TRIPS, EXPENSES: EXPENSES };
+//default constants to access LocalStorage

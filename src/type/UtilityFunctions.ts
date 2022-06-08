@@ -18,21 +18,21 @@ export const FormattEuro = (euro: number | string) => {
 };
 export const CalcDate = (date1: Date, date2: Date) => {
   // get total seconds between the times
-  var delta = Math.abs(date1.getTime() - date2.getTime()) / 1000;
+  let delta = Math.abs(date1.getTime() - date2.getTime()) / 1000;
 
   // calculate (and subtract) whole days
-  var days = Math.floor(delta / 86400);
+  const days = Math.floor(delta / 86400);
   delta -= days * 86400;
 
   // calculate (and subtract) whole hours
-  var hours = Math.floor(delta / 3600) % 24;
+  const hours = Math.floor(delta / 3600) % 24;
   delta -= hours * 3600;
 
   // calculate (and subtract) whole minutes
-  var minutes = Math.floor(delta / 60) % 60;
+  const minutes = Math.floor(delta / 60) % 60;
   delta -= minutes * 60;
 
   // what's left is seconds
-  var seconds = delta % 60;
+  //const seconds = delta % 60;
   return days * 24 + (hours > 8 ? 12 : 0);
 };
