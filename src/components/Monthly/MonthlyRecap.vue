@@ -17,7 +17,7 @@ import { defineComponent } from 'vue';
 export default defineComponent({
   data() {
     return {
-      month: new Date(),
+      month: new Date(), //default data is current data 
     };
   },
   methods: {},

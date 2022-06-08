@@ -8,6 +8,7 @@ import DataDefinition from './DataDefinition';
 import tripDefinition from './TripDefinition';
 import pdfFonts from "pdfmake/build/vfs_fonts";
 import { CalcDate, FormattData, FormattEuro } from '@/type/UtilityFunctions';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 </script>
 <template>
   <button @click="print()">Print {{ $props.month }}</button>
@@ -26,8 +27,7 @@ export default defineComponent({
     print() {
 
       let sum: number = 0;
-      this.docDefinition = DataDefinition;
-      this.docDefinition.header.stack[1].table?.body[1].push(this.$props.month + '');
+      this.docDefinition = DataDefinition(this.$props.month);
       if (localStorage.getItem(LocalStorageVar.EXPENSES) !== '' && localStorage.getItem(LocalStorageVar.TRIPS) !== '') {
         const startDate = new Date(Date.parse(this.$props.month + '-01'));
         const endDate = new Date(Date.parse(this.$props.month + '-01'));
@@ -79,7 +79,6 @@ export default defineComponent({
         });
 
         pdfMake.createPdf(this.docDefinition).download();
-
       }
     }
   }

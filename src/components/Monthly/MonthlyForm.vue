@@ -11,14 +11,14 @@ DataSelected.data =
   <div class="styleButtons">
 
     <input type="month" v-model="DataSelected.data" />
+    <!--Date Selector \\TODO improve-->
     <MonthlyPrint :month="DataSelected.data" />
+    <!--automatically update selected month to print -->
   </div>
 </template>
 
 <script lang="ts">
 export default defineComponent({
   props: ['month'],
-
-
 });
 </script>

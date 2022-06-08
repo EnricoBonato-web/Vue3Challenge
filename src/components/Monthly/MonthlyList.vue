@@ -5,7 +5,7 @@ import { defineComponent } from 'vue';
 import { DataSelected } from '@/components/Monthly/DataState.vue';
 import LocalStorageVar from '../../type/LocalStorageVar';
 import ListItem from './ListItem.vue';
-import { FormattData,FormattEuro } from '@/type/UtilityFunctions';
+import { FormattData, FormattEuro } from '@/type/UtilityFunctions';
 </script>
 <template >
   <div id="list" v-if="filteredTrip().toString() != ''">
@@ -42,6 +42,7 @@ export default defineComponent({
   data() {
     return {
       DataAdded: (localStorage.getItem(LocalStorageVar.TRIPS) != '' &&
+        localStorage.getItem(LocalStorageVar.TRIPS) != null &&
         localStorage.getItem(LocalStorageVar.TRIPS)!.length > 0
         ? JSON.parse(localStorage.getItem(LocalStorageVar.TRIPS)!)
         : []) as TripType[],

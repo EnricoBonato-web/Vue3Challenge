@@ -11,9 +11,8 @@ import LocalStorageVar from '@/type/LocalStorageVar';
 
 <template>
   <h1>Insert Expense</h1>
-  <h3 v-if="success" class="succes">No trip found during this mounth</h3>
+  <h3 v-if="success" class="success">Expense insertet correctly</h3>
   <form>
-
     <vue-form-wizard :key="reload" :form="questions" v-model="formData" @submit="handleForm(formData)"
       @next="handleNext" />
   </form>
@@ -23,12 +22,14 @@ import LocalStorageVar from '@/type/LocalStorageVar';
 export default defineComponent({
   methods: {
     handleNext() {
+      //TODO implement better error for no trip
       this.success = false;
       if (this.formData.question1.value != this.oldData) {
         this.load(this.formData.question1.value as Date)
         this.oldData = this.formData.question1.value;
       }
     },
+    //used to load trips and type
     load(data: Date) {
       let updatedQuestion = wizardQuestions;
       updatedQuestion[4].options.list = [];
@@ -43,6 +44,7 @@ export default defineComponent({
         }
       return updatedQuestion;
     },
+    //used to handle form submit
     handleForm(data: any) {
       const expenseBuild: ExpenseType[] = [
         {
@@ -61,9 +63,9 @@ export default defineComponent({
         localStorage.setItem(LocalStorageVar.EXPENSES, JSON.stringify(trips));
       } else localStorage.setItem(LocalStorageVar.EXPENSES, JSON.stringify(expenseBuild));
       this.formData = [];
-      this.success = true;
-      this.reload = !this.reload;// used to reload
-
+      this.success = true; //uset to show success message
+      this.reload = !this.reload;// used to reload the page 
+      //TODO implement popup message
     },
 
   },
@@ -88,5 +90,11 @@ export default defineComponent({
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+.success {
+  margin-bottom: -1em;
+  margin: 20px;
+  color: green;
 }
 </style>

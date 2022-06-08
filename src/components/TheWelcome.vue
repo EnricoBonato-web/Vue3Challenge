@@ -31,8 +31,8 @@ import ExampleExpense from './expenses/ExampleExpense';
     </template>
     <template #heading>Tooling</template>
 
-    <p>This project is build using Vue3, Typescript, Javascript , HTML and Css.</p>
-    <p>Some external modules that i have used are:
+    <p>This project is built using Vue3, Typescript, Javascript , HTML and Css.</p>
+    <p>Some external modules that I have used are:
       <a h-ref="https://github.com/Anivive/vue3-form-wizard">vue3-form-wizard</a>,
       <a h-ref="http://pdfmake.org/#/">pdfmake</a>
     </p>
@@ -45,7 +45,7 @@ import ExampleExpense from './expenses/ExampleExpense';
     </template>
     <template #heading>Dummy Data</template>
 
-    To better test this application i have prepared some Dummy datas that can be added to the local storage:
+    To better test this application I have prepared some Dummy data that can be added to the local storage:
     <div class="styleButtons">
 
       <form id="add" @submit="Add($event)">
@@ -65,8 +65,7 @@ import ExampleExpense from './expenses/ExampleExpense';
   <WelcomeItem>
     <template #icon>
       <SupportIcon />
-    </template>
-    Hope you enjoy my project, looking forward to hear reviw about it.
+    </template>Hope you enjoy my project, looking forward to hearing a reviw about it.
   </WelcomeItem>
 </template>
     <script lang="ts">

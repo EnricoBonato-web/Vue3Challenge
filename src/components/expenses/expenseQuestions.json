@@ -3,7 +3,7 @@
     "property": "question1",
     "text": "Trip Date",
     "type": "input",
-    "@change":"handleChange(FormData)",
+    "@change": "handleChange(FormData)",
     "options": {
       "type": "datetime-local"
     },
@@ -27,9 +27,9 @@
   },
   {
     "property": "question2",
-    "text": "Which trip?",
+    "text": "Which trip?(If no trip are shown please change date )",
     "type": "options",
-    "for":"text",
+    "for": "text",
     "options": {
       "multiSelect": false,
       "list": [
