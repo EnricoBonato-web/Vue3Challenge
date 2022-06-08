@@ -1,61 +1,61 @@
 import type TripType from '@/type/TripType';
-
+const DAYSECONDS = 24 * 60 * 60 * 1000;
 const DummyTrips: TripType[] = [
   {
     id: '' + 0,
-    purpose: 'Holliday',
+    purpose: 'visit to onrooby headquarters',
     startTime: new Date(),
-    endTime: new Date(),
+    endTime: new Date(new Date().getTime() + 3 * DAYSECONDS),
     startLocation: 'Bielefeld',
-    endLocation: 'Castelfranco',
-    kilometersTravelled: 0,
+    endLocation: 'Berlin',
+    kilometersTravelled: 500,
     overnight: 2,
     breakfasts: 2,
     lunches: 1,
     dinners: 1,
-    isDummyData: true, //added to add and remove dummy datas }];
+    isDummyData: true, //added to mark dummy datas }];
   },
   {
     id: '' + 1,
-    purpose: 'party',
-    startTime: new Date(new Date().getTime() + 30 * 24 * 60 * 60 * 1000),
-    endTime: new Date(new Date().getTime() + 30 * 24 * 60 * 60 * 1000),
+    purpose: 'Returned Home',
+    startTime: new Date(new Date().getTime() + 30 * DAYSECONDS),
+    endTime: new Date(new Date().getTime() + 34 * DAYSECONDS),
     startLocation: 'Bielefeld',
     endLocation: 'Castelfranco',
-    kilometersTravelled: 0,
+    kilometersTravelled: 1000,
     overnight: 2,
-    breakfasts: 2,
+    breakfasts: 0,
     lunches: 1,
     dinners: 1,
-    isDummyData: true, //added to add and remove dummy datas }];
+    isDummyData: true, //added to mark dummy datas }];
   },
   {
     id: '' + 2,
-    purpose: 'work',
+    purpose: 'Trip to Koln',
     startTime: new Date(),
-    endTime: new Date(new Date().getTime() + 24 * 60 * 60 * 1000),
+    endTime: new Date(new Date().getTime() + DAYSECONDS),
     startLocation: 'Bielefeld',
-    endLocation: 'Castelfranco',
-    kilometersTravelled: 0,
-    overnight: 2,
-    breakfasts: 2,
-    lunches: 1,
-    dinners: 1,
-    isDummyData: true, //added to add and remove dummy datas }];
+    endLocation: 'Koln',
+    kilometersTravelled: 300,
+    overnight: 0,
+    breakfasts: 0,
+    lunches: 0,
+    dinners: 0,
+    isDummyData: true, //added to mark dummy datas }];
   },
   {
     id: '' + 3,
-    purpose: 'cat',
-    startTime: new Date(new Date().getTime() - 24 * 60 * 60 * 1000),
-    endTime: new Date(new Date().getTime() + 2 * 24 * 60 * 60 * 1000),
+    purpose: 'Meeting with Google',
+    startTime: new Date(new Date().getTime() - DAYSECONDS),
+    endTime: new Date(new Date().getTime() + 2 * DAYSECONDS),
     startLocation: 'Bielefeld',
-    endLocation: 'Castelfranco',
-    kilometersTravelled: 0,
-    overnight: 2,
-    breakfasts: 2,
+    endLocation: 'Hamburg',
+    kilometersTravelled: 1500,
+    overnight: 1,
+    breakfasts: 0,
     lunches: 1,
     dinners: 1,
-    isDummyData: true, //added to add and remove dummy datas }];
+    isDummyData: true, //added to mark dummy datas }];
   },
 ];
 export default DummyTrips;

@@ -1,7 +1,7 @@
 import { mount } from '@cypress/vue';
 import TheWelcome from '../TheWelcome.vue';
 
-describe('HelloWorld', () => {
+describe('TheWelcome', () => {
   it('playground', () => {
     mount(TheWelcome, {});
   });

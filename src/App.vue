@@ -1,13 +1,10 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router';
-import MonthlyRecap from '@/components/Monthly/MonthlyRecap.vue';
-import HomeView from './views/HomeView.vue';
 </script>
 
 <template>
   <header>
     <div class="wrapper">
-      <!--<HelloWorld v-show="$route.name == 'home'" msg="You did it!" />-->
       <nav class="column">
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/trip">Add Trip</RouterLink>

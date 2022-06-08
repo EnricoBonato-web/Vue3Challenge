@@ -72,11 +72,12 @@ import ExampleExpense from './expenses/ExampleExpense';
     <script lang="ts">
 
 export default {
-  name: 'ExpenseTrip',
+  name: 'TheWelcome',
   data() {
     return {
       DataAdded:
-        localStorage.getItem(LocalStorageVar.TRIPS) !== ''
+        localStorage.getItem(LocalStorageVar.TRIPS) !== '' &&
+          localStorage.getItem(LocalStorageVar.TRIPS) !== null
           ? localStorage.getItem(LocalStorageVar.TRIPS)!.length > 0
             ? true
             : false
@@ -103,8 +104,8 @@ export default {
     Remove(e: Event) {
       e.preventDefault();
       if (localStorage.getItem(LocalStorageVar.TRIPS) != null) {
-        localStorage.setItem(LocalStorageVar.TRIPS,'');
-        localStorage.setItem(LocalStorageVar.EXPENSES,'');
+        localStorage.setItem(LocalStorageVar.TRIPS, '');
+        localStorage.setItem(LocalStorageVar.EXPENSES, '');
 
       }
       /*localStorage.setItem(
