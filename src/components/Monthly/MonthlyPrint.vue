@@ -8,8 +8,6 @@ import DataDefinition from './DataDefinition';
 import tripDefinition from './TripDefinition';
 import pdfFonts from "pdfmake/build/vfs_fonts";
 import { CalcDate, FormattData, FormattEuro } from '@/type/UtilityFunctions';
-
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
 </script>
 <template>
   <button @click="print()">Print {{ $props.month }}</button>

@@ -1,4 +1,4 @@
-import BillType from '@/type/BillType';
+import BillType from '../../type/BillType';
 import type ExpenseType from '@/type/ExpenseType';
 const ExampleExpense: ExpenseType[] = [
   {
