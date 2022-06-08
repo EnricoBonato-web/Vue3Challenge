@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { defineComponent } from 'vue';
-import * as pdfMake from 'pdfmake/build/pdfmake.js';
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
 import LocalStorageVar from '@/type/LocalStorageVar';
 import type TripType from '@/type/TripType';
 import type ExpenseType from '@/type/ExpenseType';
 import DataDefinition from './DataDefinition';
 import tripDefinition from './TripDefinition';
-import pdfFonts from "pdfmake/build/vfs_fonts";
 import { CalcDate, FormattData, FormattEuro } from '@/type/UtilityFunctions';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 </script>
